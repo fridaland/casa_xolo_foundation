@@ -1,17 +1,17 @@
 Rails.application.routes.draw do
   namespace :admin do
-      resources :board_members
-      resources :donors
-      resources :email_records
-      resources :parents
-      resources :people
-      resources :pets
-      resources :transactions
-      resources :users
-      resources :volunteers
+    resources :board_members
+    resources :donors
+    resources :email_records
+    resources :parents
+    resources :people
+    resources :pets
+    resources :transactions
+    resources :users
+    resources :volunteers
 
-      root to: "board_members#index"
-    end
+    root to: "board_members#index"
+  end
   devise_for :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
