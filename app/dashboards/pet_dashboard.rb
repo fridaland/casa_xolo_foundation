@@ -10,7 +10,24 @@ class PetDashboard < Administrate::BaseDashboard
   ATTRIBUTE_TYPES = {
     id: Field::Number,
     created_at: Field::DateTime,
-    updated_at: Field::DateTime
+    updated_at: Field::DateTime,
+    name: Field::String,
+    species: Field::String,
+    sex: Field::String,
+    color: Field::String,
+    description: Field::Text,
+    breed: Field::String,
+    age: Field::Number,
+    temperament: Field::Select.with_options(
+      collection: Pet::TEMPERAMENT_OPTIONS,
+      multiple: true,
+    ),
+    size: Field::String,
+    status: Field::String,
+    spayed_neutered: Field::Boolean,
+    vaccinated: Field::Boolean,
+    microchipped: Field::Boolean,
+    weight: Field::Number.with_options(decimals: 2)
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -20,14 +37,32 @@ class PetDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
     id
-    created_at
-    updated_at
+    name
+    species
+    sex
+    color
+    description
+    status
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = %i[
     id
+    name
+    species
+    breed
+    sex
+    color
+    description
+    size
+    temperament
+    age
+    status
+    spayed_neutered
+    vaccinated
+    microchipped
+    weight
     created_at
     updated_at
   ].freeze
@@ -35,7 +70,22 @@ class PetDashboard < Administrate::BaseDashboard
   # FORM_ATTRIBUTES
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
-  FORM_ATTRIBUTES = %i[].freeze
+  FORM_ATTRIBUTES = %i[
+    name
+    species
+    breed
+    sex
+    color
+    description
+    size
+    temperament
+    age
+    status
+    spayed_neutered
+    vaccinated
+    microchipped
+    weight
+  ].freeze
 
   # COLLECTION_FILTERS
   # a hash that defines filters that can be used while searching via the search
@@ -47,12 +97,18 @@ class PetDashboard < Administrate::BaseDashboard
   #   COLLECTION_FILTERS = {
   #     open: ->(resources) { resources.where(open: true) }
   #   }.freeze
-  COLLECTION_FILTERS = {}.freeze
+  COLLECTION_FILTERS = {
+    available: ->(resources) { resources.where(status: 'available') },
+    adopted:   ->(resources) { resources.where(status: 'adopted') },
+    urgent:    ->(resources) { resources.where(status: 'urgent') },
+    cat:       ->(resources) { resources.where(species: 'cat') },
+    dog:       ->(resources) { resources.where(species: 'dog') }
+  }.freeze
 
   # Overwrite this method to customize how pets are displayed
   # across all pages of the admin dashboard.
   #
-  # def display_resource(pet)
-  #   "Pet ##{pet.id}"
-  # end
+  def display_resource(pet)
+    pet.name
+  end
 end
