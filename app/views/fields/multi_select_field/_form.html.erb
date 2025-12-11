@@ -1,0 +1,14 @@
+<div class="form-group">
+  <%= label_tag field.attribute, field.attribute.to_s.humanize %>
+  <select multiple
+    name="<%= field.attribute %>[]"
+    id="<%= field.attribute %>"
+    class="form-control multi-select">
+    <% field.selectable_options.each do |option| %>
+      <option value="<%= option %>" <%= "selected" if field.data&.include?(option) %>>
+        <%= option.humanize %>
+      </option>
+    <% end %>
+  </select>
+</div>
+

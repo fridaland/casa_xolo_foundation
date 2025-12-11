@@ -18,13 +18,12 @@ class PetDashboard < Administrate::BaseDashboard
     description: Field::Text,
     breed: Field::String,
     age: Field::Number,
-    temperament: Field::Select.with_options(
-      collection: Pet::TEMPERAMENT_OPTIONS,
-      multiple: true
-    ),
     size: Field::String,
     status: Field::String,
     spayed_neutered: Field::Boolean,
+    temperament: MultiSelectField.with_options(
+      collection: Pet::TEMPERAMENT_OPTIONS
+    ),
     vaccinated: Field::Boolean,
     microchipped: Field::Boolean,
     weight: Field::Number.with_options(decimals: 2)
