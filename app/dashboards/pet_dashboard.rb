@@ -20,7 +20,7 @@ class PetDashboard < Administrate::BaseDashboard
     age: Field::Number,
     temperament: Field::Select.with_options(
       collection: Pet::TEMPERAMENT_OPTIONS,
-      multiple: true,
+      multiple: true
     ),
     size: Field::String,
     status: Field::String,
@@ -98,11 +98,11 @@ class PetDashboard < Administrate::BaseDashboard
   #     open: ->(resources) { resources.where(open: true) }
   #   }.freeze
   COLLECTION_FILTERS = {
-    available: ->(resources) { resources.where(status: 'available') },
-    adopted:   ->(resources) { resources.where(status: 'adopted') },
-    urgent:    ->(resources) { resources.where(status: 'urgent') },
-    cat:       ->(resources) { resources.where(species: 'cat') },
-    dog:       ->(resources) { resources.where(species: 'dog') }
+    available: ->(resources) { resources.where(status: "available") },
+    adopted: ->(resources) { resources.where(status: "adopted") },
+    urgent: ->(resources) { resources.where(status: "urgent") },
+    cat: ->(resources) { resources.where(species: "cat") },
+    dog: ->(resources) { resources.where(species: "dog") }
   }.freeze
 
   # Overwrite this method to customize how pets are displayed
