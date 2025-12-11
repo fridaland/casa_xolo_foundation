@@ -332,6 +332,8 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 4.0)
       websocket (~> 1.0)
+    shoulda-matchers (7.0.1)
+      activesupport (>= 7.1)
     sshkit (1.24.0)
       base64
       logger
@@ -417,6 +419,7 @@ DEPENDENCIES
   rails (~> 8.0.1)
   rspec-rails
   selenium-webdriver
+  shoulda-matchers
   standard
   stimulus-rails
   strong_migrations
