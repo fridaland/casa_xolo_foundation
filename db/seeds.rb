@@ -10,4 +10,5 @@
 
 require "factory_bot_rails"
 
-FactoryBot.create(:user)
+# FactoryBot.create(:user)
+FactoryBot.create(:pet)

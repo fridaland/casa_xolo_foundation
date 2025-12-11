@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_12_11_190913) do
+ActiveRecord::Schema[8.0].define(version: 2025_12_11_192231) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -70,6 +70,20 @@ ActiveRecord::Schema[8.0].define(version: 2025_12_11_190913) do
   create_table "pets", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name", null: false
+    t.string "species", null: false
+    t.string "breed"
+    t.string "sex", null: false
+    t.string "color", null: false
+    t.text "description", null: false
+    t.string "size"
+    t.string "temperament", default: [], array: true
+    t.integer "age"
+    t.string "status", default: "available"
+    t.boolean "spayed_neutered", default: false
+    t.boolean "vaccinated", default: false
+    t.boolean "microchipped", default: false
+    t.decimal "weight", precision: 5, scale: 2
   end
 
   create_table "transactions", force: :cascade do |t|
