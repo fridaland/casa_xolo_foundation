@@ -1,7 +1,6 @@
 require "rails_helper"
 
 RSpec.describe "Admin::Pets", type: :system do
-
   before do
     driven_by(:rack_test) # fast, no JS; switch to :selenium if you need JS
   end
