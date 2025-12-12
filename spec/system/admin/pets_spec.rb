@@ -28,9 +28,17 @@ RSpec.describe "Admin::Pets", type: :system do
 
     expect(page).to have_content("Tater Tot")
 
+    # Going back to the index and then navigating to the page ensures
+    # We are loading the values from the database
+    visit "/admin/pets"
+
     click_on "Tater Tot"
     expect(page).to have_content("Calm")
     expect(page).to have_content("Good with kids")
     expect(page).to have_content("Social")
+    expect(page).to have_content("male")
+    expect(page).to have_content("medium")
+    expect(page).to have_content("dog")
+    expect(page).to have_content("available")
   end
 end
