@@ -1,7 +1,6 @@
 require "rails_helper"
 
 RSpec.describe "Admin::Pets", type: :system do
-  include Devise::Test::IntegrationHelpers
 
   before do
     driven_by(:rack_test) # fast, no JS; switch to :selenium if you need JS
@@ -9,7 +8,7 @@ RSpec.describe "Admin::Pets", type: :system do
 
   it "allows creating a pet with multiple temperaments" do
     user = create(:user)
-    sign_in user
+    login_as user
     visit "/admin/pets"
     expect(page).to have_content("New pet")
     click_on "New pet"
