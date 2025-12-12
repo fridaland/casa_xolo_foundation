@@ -33,4 +33,27 @@ RSpec.describe "Admin::Pets", type: :system do
     expect(page).to have_content("Good with kids")
     expect(page).to have_content("Social")
   end
+
+  it "allows creating a pet with attached photos" do
+    visit "/admin/pets"
+
+    click_on "New pet"
+
+    fill_in "Name", with: "Salem"
+    select "cat", from: "Species"
+    select "female", from: "Sex"
+    fill_in "Color", with: "Black"
+    fill_in "Description", with: "A lovely black cat looking for a home."
+
+    attach_file "Photos", [
+      Rails.root.join("spec/fixtures/files/cat_salem.jpg")
+    ]
+
+    click_on "Create Pet"
+
+    expect(page).to have_content("Salem")
+
+    click_on "Salem"
+    expect(page).to have_selector("img[src*='cat_salem.jpg']")
+  end
 end

@@ -34,7 +34,13 @@ class PetDashboard < Administrate::BaseDashboard
     ),
     vaccinated: Field::Boolean,
     microchipped: Field::Boolean,
-    weight: Field::Number.with_options(decimals: 2)
+    weight: Field::Number.with_options(decimals: 2),
+    photos: Field::ActiveStorage.with_options(
+      show_preview_size: [150, 150],
+      destroy_url: proc do |namespace, resource, attachment|
+        [:photo_admin_pet, {photo_id: attachment.id}]
+      end
+    )
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -69,6 +75,7 @@ class PetDashboard < Administrate::BaseDashboard
     spayed_neutered
     vaccinated
     microchipped
+    photos
     weight
     created_at
     updated_at
@@ -91,6 +98,7 @@ class PetDashboard < Administrate::BaseDashboard
     spayed_neutered
     vaccinated
     microchipped
+    photos
     weight
   ].freeze
 
@@ -117,5 +125,9 @@ class PetDashboard < Administrate::BaseDashboard
   #
   def display_resource(pet)
     pet.name
+  end
+
+  def permitted_attributes(_action = nil)
+    super + [photos: []]
   end
 end
