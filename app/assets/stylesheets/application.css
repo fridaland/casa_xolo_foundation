@@ -8,3 +8,8 @@
  *
  * Consider organizing styles into separate files for maintainability.
  */
+
+body {
+  background-color: #120d0a;
+  color: rgb(228, 203, 178);
+}
