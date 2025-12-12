@@ -10,7 +10,7 @@ RSpec.describe "Admin::Pets", type: :system do
     login_as user
     visit "/admin/pets"
     expect(page).to have_content("New pet")
-    click_on "New pet"
+    click_link "New pet"
 
     fill_in "Name", with: "Tater Tot"
     select "dog", from: "Species"
