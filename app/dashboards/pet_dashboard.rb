@@ -13,20 +13,24 @@ class PetDashboard < Administrate::BaseDashboard
     updated_at: Field::DateTime,
     name: Field::String,
     species: Field::Select.with_options(
-      collection: Pet.species.keys
+      collection: Pet.species.keys,
+      include_blank: true
     ),
     sex: Field::Select.with_options(
-      collection: Pet.sexes.keys
+      collection: Pet.sexes.keys,
+      include_blank: true
     ),
     color: Field::String,
     description: Field::Text,
     breed: Field::String,
     age: Field::Number,
     size: Field::Select.with_options(
-      collection: Pet.sizes.keys
+      collection: Pet.sizes.keys,
+      include_blank: true
     ),
     status: Field::Select.with_options(
-      collection: Pet.statuses.keys
+      collection: Pet.statuses.keys,
+      include_blank: true
     ),
     spayed_neutered: Field::Boolean,
     temperament: MultiSelectField.with_options(

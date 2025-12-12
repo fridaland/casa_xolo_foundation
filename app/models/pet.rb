@@ -15,12 +15,11 @@ class Pet < ApplicationRecord
   ].freeze
 
   validates :name, presence: true
-  validates :sex, presence: true
   validates :color, presence: true
   validates :description, presence: true
 
-  enum :size, ["small", "medium", "large"]
-  enum :species, ["dog", "cat", "other"]
-  enum :status, ["available", "adopted", "urgent"]
-  enum :sex, ["female", "male"]
+  enum :size, ["small", "medium", "large"], validate: {allow_nil: true}
+  enum :species, ["dog", "cat", "other"], validate: {allow_nil: true}
+  enum :status, ["available", "adopted", "urgent"], validate: {allow_nil: true}
+  enum :sex, ["female", "male"], validate: true
 end
