@@ -12,14 +12,22 @@ class PetDashboard < Administrate::BaseDashboard
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
     name: Field::String,
-    species: Field::String,
-    sex: Field::String,
+    species: Field::Select.with_options(
+      collection: Pet.species.keys
+    ),
+    sex: Field::Select.with_options(
+      collection: Pet.sexes.keys
+    ),
     color: Field::String,
     description: Field::Text,
     breed: Field::String,
     age: Field::Number,
-    size: Field::String,
-    status: Field::String,
+    size: Field::Select.with_options(
+      collection: Pet.sizes.keys
+    ),
+    status: Field::Select.with_options(
+      collection: Pet.statuses.keys
+    ),
     spayed_neutered: Field::Boolean,
     temperament: MultiSelectField.with_options(
       collection: Pet::TEMPERAMENT_OPTIONS

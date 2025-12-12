@@ -11,7 +11,7 @@ class Pet < ApplicationRecord
     "independent",
     "social",
     "reactive",
-    "shy",
+    "shy"
   ].freeze
 
   validates :name, presence: true

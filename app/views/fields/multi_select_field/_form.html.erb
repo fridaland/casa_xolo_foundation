@@ -1,14 +1,20 @@
-<div class="form-group">
-  <%= label_tag field.attribute, field.attribute.to_s.humanize %>
-  <select multiple
-    name="<%= field.attribute %>[]"
-    id="<%= field.attribute %>"
-    class="form-control multi-select">
-    <% field.selectable_options.each do |option| %>
-      <option value="<%= option %>" <%= "selected" if field.data&.include?(option) %>>
-        <%= option.humanize %>
-      </option>
-    <% end %>
-  </select>
-</div>
+<div class="field-unit field-unit--multi_select field-unit--optional">
+  <div class="field-unit__label">
+    <label><%= field.attribute.to_s.humanize %></label>
+  </div>
+  <div class="field-unit__field">
+    <%# Inline CSS just for this field, extract later %>
+    <style>
+      .multi-checkbox { display: flex; align-items: center; margin-bottom: 0.25rem; }
+      .multi-checkbox input[type="checkbox"] { margin-right: 0.5rem; flex-shrink: 0; }
+      .multi-checkbox label { cursor: pointer; flex-grow: 1; }
+    </style>
 
+    <% field.selectable_options.each do |option| %>
+      <div class="multi-checkbox">
+        <%= check_box_tag "#{field.attribute}[]", option, field.data&.include?(option), id: "#{field.attribute}_#{option}" %>
+        <%= label_tag "#{field.attribute}_#{option}", option.humanize %>
+      </div>
+    <% end %>
+  </div>
+</div>
