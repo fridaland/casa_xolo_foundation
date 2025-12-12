@@ -9,6 +9,10 @@ class MultiSelectField < Administrate::Field::Base
     options.fetch(:collection, [])
   end
 
+ def self.permitted_attribute(attr, _options = nil)
+    { attr => [] }
+  end
+
   def self.searchable?
     false
   end

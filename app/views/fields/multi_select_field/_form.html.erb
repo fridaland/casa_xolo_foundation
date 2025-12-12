@@ -12,7 +12,7 @@
 
     <% field.selectable_options.each do |option| %>
       <div class="multi-checkbox">
-        <%= check_box_tag "#{field.attribute}[]", option, field.data&.include?(option), id: "#{field.attribute}_#{option}" %>
+        <%= check_box_tag "pet[#{field.attribute}][]", option, field.data&.include?(option), id: "#{field.attribute}_#{option}" %>
         <%= label_tag "#{field.attribute}_#{option}", option.humanize %>
       </div>
     <% end %>
