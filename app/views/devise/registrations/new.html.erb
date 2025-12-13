@@ -1,0 +1,43 @@
+<div>
+  <h2>
+    Sign Up
+  </h2>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <div>
+      <%= f.label :email %>
+      <%= f.email_field :email,
+            autofocus: true,
+            autocomplete: "email"
+      %>
+    </div>
+
+    <div>
+      <%= f.label :password, class: "block mb-1 text-sm text-stone-300" %>
+
+      <% if @minimum_password_length %>
+        <p>
+          (<%= @minimum_password_length %> characters minimum)
+        </p>
+      <% end %>
+
+      <%= f.password_field :password,
+            autocomplete: "new-password" %>
+    </div>
+
+    <div>
+      <%= f.label :password_confirmation, class: "block mb-2 text-sm text-stone-300" %>
+      <%= f.password_field :password_confirmation,
+            autocomplete: "new-password" %>
+    </div>
+
+    <%= f.submit "Sign Up" %>
+  <% end %>
+
+  <div>
+    <%= link_to "Already have an account? Sign in",
+          new_session_path(resource_name) %>
+  </div>
+
+</div>
