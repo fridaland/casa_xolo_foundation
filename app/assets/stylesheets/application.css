@@ -8,3 +8,16 @@
  *
  * Consider organizing styles into separate files for maintainability.
  */
+body {
+  background-color: #120d0a;
+  color: rgb(228, 203, 178);
+  height: 100%;
+}
+
+input {
+  background-color: rgb(228, 203, 178);
+  color:  #1e1a18;
+  border: none;
+  padding: 6px;
+  border-radius: 4px;
+}
