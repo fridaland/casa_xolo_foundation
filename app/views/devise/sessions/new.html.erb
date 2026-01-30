@@ -1,39 +1,26 @@
-<div>
-  <div>
-    <div>
-      <h2>
-      <p>
-    </div>
+<div class="auth-layout">
+  <div class="auth-card">
+    <h1 class="auth-title">Casa Xolo Foundation</h1>
+    <p class="auth-subtitle">Admin Portal</p>
 
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <div>
-        <div>
-          <!-- Email -->
-          <div>
-            <%= f.label :email %>
-            <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email" %>
-          </div>
-
-          <!-- Password -->
-          <div>
-            <%= f.label :password %>
-            <%= f.password_field :password, autocomplete: "current-password", placeholder: "Password" %>
-          </div>
-        </div>
-
-        <!-- Submit -->
-        <div>
-          <%= f.submit "Sign In" %>
-        </div>
-
-        <!-- Links -->
-        <div>
-          <%= link_to "Sign up", new_registration_path(resource_name) %>
-        </div>
-        <div>
-          <%= link_to "Forgot your password?", new_password_path(resource_name) %>
-        </div>
+      <div class="form-group">
+        <%= f.label :email, class: "form-label" %>
+        <%= f.email_field :email, placeholder: "admin@casaxolo.org" %>
       </div>
+
+      <div class="form-group">
+        <%= f.label :password, class: "form-label" %>
+        <%= f.password_field :password %>
+      </div>
+
+      <%= f.submit "Sign In", class: "button button--block" %>
     <% end %>
+
+    <div class="mt-6 text-center">
+      <%= link_to "Forgot your password?",
+            new_user_password_path,
+            class: "button--link text-sm" %>
+    </div>
   </div>
 </div>
