@@ -23,7 +23,7 @@
   --font-sans: "Quicksand", ui-sans-serif, system-ui;
 
   /* Admin-specific */
-  --admin-bg: var(--color-sand);
+  --admin-bg: var(--color-graysoft);
   --admin-panel: var(--color-white);
   --admin-border: var(--color-graysoft);
   --admin-accent: var(--color-brown);
@@ -83,6 +83,27 @@ textarea:focus {
   outline: none;
   border-color: var(--admin-accent);
   box-shadow: 0 0 0 2px color-mix(in srgb, var(--admin-accent) 20%, transparent);
+}
+
+.auth-layout {
+  background-color: var(--admin-bg);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+.auth-card {
+/* bg-white w-full max-w-md rounded-xl shadow-sm border border-graysoft p-8; */
+  background-color: var(--admin-panel);
+  width: 100%;
+  max-width: 28rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--admin-border);
+  padding: 2rem;
+
 }
 
 .button {

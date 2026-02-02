@@ -1,7 +1,11 @@
 <div class="auth-layout">
   <div class="auth-card">
-    <h1 class="auth-title">Casa Xolo Foundation</h1>
-    <p class="auth-subtitle">Admin Portal</p>
+    <div class="flex flex-col items-center">
+      <div>
+        <p class="auth-subtitle font-medium">Admin Portal</p>
+        <h1 class="auth-title mb-4">Casa Xolo Foundation</h1>
+      </div>
+    </div>
 
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="form-group">
@@ -14,13 +18,17 @@
         <%= f.password_field :password %>
       </div>
 
-      <%= f.submit "Sign In", class: "button button--block" %>
+      <%= f.submit "Sign In", class: "button button--block mt-4" %>
     <% end %>
 
     <div class="mt-6 text-center">
       <%= link_to "Forgot your password?",
             new_user_password_path,
             class: "button--link text-sm" %>
+      <br/>
+      <%= link_to "Don't have an account? Sign up",
+            new_registration_path(resource_name),
+            class: "button--link text-sm mt-2" %>
     </div>
   </div>
 </div>

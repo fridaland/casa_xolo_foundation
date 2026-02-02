@@ -1,0 +1,21 @@
+<div class="auth-layout">
+  <div class="auth-card">
+    <div class="flex flex-col items-center">
+      <div>
+        <p class="auth-subtitle font-medium">Admin Portal</p>
+        <h1 class="auth-title mb-4">Casa Xolo Foundation</h1>
+      </div>
+    </div>
+    <%= render "devise/shared/error_messages", resource: resource %>
+
+    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+      <div class="form-group">
+        <%= f.label :email, class: "form-label" %>
+        <%= f.email_field :email, placeholder: "admin@casaxolo.org" %>
+      </div>
+
+
+      <%= f.submit "Send me password reset instructions", class: "button button--block mt-4" %>
+    <% end %>
+  </div>
+</div>
