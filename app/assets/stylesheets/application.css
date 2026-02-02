@@ -8,16 +8,163 @@
  *
  * Consider organizing styles into separate files for maintainability.
  */
-body {
-  background-color: #120d0a;
-  color: rgb(228, 203, 178);
-  height: 100%;
+
+ :root {
+  /* Colors */
+  --color-black: #000000;
+  --color-charcoal: #2B2B2B;
+  --color-graysoft: #D9D9D9;
+  --color-sand: #EFE6D8;
+  --color-brown: #7A5C3E;
+  --color-white: #ffffff;
+  
+  /* Typography */
+  --font-script: "Great Vibes", cursive;
+  --font-sans: "Quicksand", ui-sans-serif, system-ui;
+
+  /* Admin-specific */
+  --admin-bg: var(--color-graysoft);
+  --admin-panel: var(--color-white);
+  --admin-border: var(--color-graysoft);
+  --admin-accent: var(--color-brown);
+}
+ 
+table {
+  width: 100%;
+  border-collapse: collapse;
 }
 
-input {
-  background-color: rgb(228, 203, 178);
-  color:  #1e1a18;
+th {
+  text-align: left;
+  font-weight: 600;
+  color: var(--color-charcoal);
+  border-bottom: 1px solid var(--admin-border);
+  padding: 0.75rem;
+}
+
+td {
+  padding: 0.75rem;
+  border-bottom: 1px solid var(--admin-border);
+}
+
+tr:hover td {
+  background-color: var(--color-graysoft);
+}
+
+label {
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+  display: block;
+}
+
+input[type="submit"] {
+  background-color: var(--admin-accent);
+  color: white;
   border: none;
-  padding: 6px;
-  border-radius: 4px;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  font-weight: 500;
+  cursor: pointer;
+} 
+
+input,
+select,
+textarea {
+  width: 100%;
+  border: 1px solid var(--admin-border);
+  border-radius: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  font-family: var(--font-sans);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--admin-accent);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--admin-accent) 20%, transparent);
+}
+
+.auth-layout {
+  background-color: var(--admin-bg);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+.auth-card {
+/* bg-white w-full max-w-md rounded-xl shadow-sm border border-graysoft p-8; */
+  background-color: var(--admin-panel);
+  width: 100%;
+  max-width: 28rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--admin-border);
+  padding: 2rem;
+
+}
+
+.button {
+  background-color: var(--admin-accent);
+  color: white;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  font-weight: 500;
+}
+
+.button:hover {
+  opacity: 0.9;
+}
+
+.button--secondary {
+  background-color: transparent;
+  color: var(--admin-accent);
+  border: 1px solid var(--admin-accent);
+}
+
+.card,
+.table,
+.fieldset {
+  background-color: var(--admin-panel);
+  border: 1px solid var(--admin-border);
+  border-radius: 0.75rem;
+}
+
+.header {
+  background-color: transparent;
+  border-bottom: 1px solid var(--admin-border);
+  padding: 1.5rem 2rem;
+}
+
+.header__heading {
+  font-family: var(--font-script);
+  font-size: 2rem;
+  color: var(--color-charcoal);
+}
+
+.main-content {
+  padding: 2rem;
+}
+
+.navigation {
+  background-color: var(--admin-panel);
+  border-right: 1px solid var(--admin-border);
+}
+
+.navigation__link {
+  color: var(--color-charcoal);
+  padding: 0.75rem 1rem;
+  display: block;
+  border-radius: 0.375rem;
+}
+
+.navigation__link:hover {
+  background-color: var(--color-graysoft);
+}
+
+.navigation__link--active {
+  background-color: var(--admin-accent);
+  color: white;
 }
