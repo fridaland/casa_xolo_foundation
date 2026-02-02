@@ -1,24 +1,56 @@
-# README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Casa Xolo Foundation
 
-Things you may want to cover:
+A Ruby on Rails 8.1 application for Casa Xolo Foundation.
 
-* Ruby version
+## Requirements
 
-* System dependencies
+- Ruby 3.4.1 (see `.ruby-version`)
+- PostgreSQL
+- Node.js (for JS tooling, if needed)
+- Redis (optional, for ActionCable if enabled)
+- Bundler (`gem install bundler`)
 
-* Configuration
+## Setup
 
-* Database creation
+1. **Clone the repository:**
+	 ```sh
+	 git clone <repo-url>
+	 cd casa_xolo_foundation
+	 ```
 
-* Database initialization
+2. **Install dependencies:**
+	 ```sh
+	 bin/setup
+	 ```
+	 This will:
+	 - Install Ruby gems (`bundle install`)
+	 - Prepare the database (`rails db:prepare`)
+	 - Clear logs and temp files
 
-* How to run the test suite
+3. **Start the development server:**
+	 ```sh
+	 bin/dev
+	 ```
+	 This runs the Rails server and Tailwind CSS watcher (see `Procfile.dev`).
 
-* Services (job queues, cache servers, search engines, etc.)
+## Running the App
 
-* Deployment instructions
+- **Development:**  
+	`bin/dev` (runs Rails server and Tailwind watcher)
 
-* ...
+## Linting
+
+- **Ruby style:**  
+	`bin/standardrb`
+- **Security (Brakeman):**  
+	`bin/brakeman`
+- **Rubocop (optional):**  
+	`rubocop` (uses `.rubocop.yml`)
+
+## Testing
+
+- **RSpec:**  
+	```sh
+	bundle exec rspec
+	```
