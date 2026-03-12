@@ -1,11 +1,20 @@
 <nav class="navigation">
-  <%= button_to("Sign Out", destroy_user_session_path, method: :delete, class: "button button--alt button--nav") %>
+  <div class="navigation__brand">
+    <p class="navigation__brand-title">Casa Xolo</p>
+    <p class="navigation__brand-subtitle">Admin Portal</p>
+  </div>
 
-  <% Administrate::Namespace.new(namespace).resources_with_index_route.each do |resource| %>
-    <%= link_to(
-      display_resource_name(resource),
-      resource_index_route(resource),
-      class: "navigation__link navigation__link--#{nav_link_state(resource)}"
-    ) if accessible_action?(model_from_resource(resource), :index) %>
-  <% end %>
+  <div class="navigation__links">
+    <% Administrate::Namespace.new(namespace).resources_with_index_route.each do |resource| %>
+      <%= link_to(
+        display_resource_name(resource),
+        resource_index_route(resource),
+        class: "navigation__link navigation__link--#{nav_link_state(resource)}"
+      ) if accessible_action?(model_from_resource(resource), :index) %>
+    <% end %>
+  </div>
+
+  <div class="navigation__footer">
+    <%= button_to("Sign Out", destroy_user_session_path, method: :delete, class: "navigation__signout") %>
+  </div>
 </nav>

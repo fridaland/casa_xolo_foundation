@@ -1,0 +1,41 @@
+<%#
+# Application Layout (Custom Override)
+
+This overrides Administrate's default layout to load our
+custom fonts and stylesheet while preserving the default structure.
+%>
+
+<!DOCTYPE html>
+<html lang="<%= I18n.locale %>">
+<head>
+  <meta charset="utf-8">
+  <meta name="ROBOTS" content="NOODP">
+  <meta name="viewport" content="initial-scale=1">
+  <title>
+    <%= content_for(:title) %> - <%= application_title %>
+  </title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <%= render "stylesheet" %>
+  <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag if defined?(csp_meta_tag) %>
+  <%= render "javascript" %>
+  <%= javascript_importmap_tags %>
+</head>
+<body>
+  <%= render "icons" %>
+
+  <div class="app-container">
+    <%= render "navigation" -%>
+
+    <main class="main-content">
+      <%= render "flashes" -%>
+      <%= yield %>
+    </main>
+  </div>
+</body>
+</html>
