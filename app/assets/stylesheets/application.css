@@ -401,6 +401,7 @@ fieldset {
   border: none;
   padding: 0;
   margin: 0;
+  overflow: hidden; /* clear floats from Administrate's float layout */
 }
 
 fieldset legend {
@@ -413,24 +414,31 @@ fieldset legend {
 
 dt,
 .attribute-label {
+  float: none;
+  width: auto;
+  text-align: left;
   font-size: 0.6875rem;
   font-weight: 700;
   letter-spacing: 0.07em;
   text-transform: uppercase;
   color: var(--color-muted);
   padding: 1.25rem 0 0.25rem;
+  margin: 0;
   display: block;
   border: none;
 }
 
 dd,
 .attribute-data {
+  float: none;
+  width: auto;
   margin: 0;
   font-size: 0.9375rem;
   color: var(--color-charcoal);
   padding-bottom: 1rem;
   border-bottom: 1px solid var(--admin-border);
   display: block;
+  word-break: break-word;
 }
 
 /* Last value in a fieldset — no trailing border */
