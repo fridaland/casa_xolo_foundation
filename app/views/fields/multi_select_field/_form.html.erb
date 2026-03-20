@@ -3,13 +3,6 @@
     <label><%= field.attribute.to_s.humanize %></label>
   </div>
   <div class="field-unit__field">
-    <%# Inline CSS just for this field, extract later %>
-    <style>
-      .multi-checkbox { display: flex; align-items: center; margin-bottom: 0.25rem; }
-      .multi-checkbox input[type="checkbox"] { margin-right: 0.5rem; flex-shrink: 0; }
-      .multi-checkbox label { cursor: pointer; flex-grow: 1; }
-    </style>
-
     <% field.selectable_options.each do |option| %>
       <div class="multi-checkbox">
         <%= check_box_tag "pet[#{field.attribute}][]", option, field.data&.include?(option), id: "#{field.attribute}_#{option}" %>
