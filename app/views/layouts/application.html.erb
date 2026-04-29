@@ -17,6 +17,10 @@
     <link rel="icon" href="/icon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/icon.png">
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+
     <%# Includes all stylesheet files in app/assets/stylesheets %>
     <%= stylesheet_link_tag "application", "tailwind", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
@@ -25,11 +29,24 @@
   <body>
     <%= render "flashes" -%>
     <% if devise_controller? %>
-    <main class="min-h-screen">
-      <%= yield %>
-    </main>
+      <main class="min-h-screen">
+        <%= yield %>
+      </main>
     <% else %>
+      <header class="site-header">
+        <nav class="site-nav">
+          <%= link_to "Casa Xolo", home_path, class: "site-nav__brand" %>
+          <ul class="site-nav__links">
+            <li><%= link_to "Home", home_path %></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Become a Foster</a></li>
+            <li><a href="#">Volunteer</a></li>
+            <li><a href="#">Adoptable Pets</a></li>
+            <li><a href="#">Events</a></li>
+          </ul>
+        </nav>
+      </header>
       <%= yield %>
-  <% end %>
+    <% end %>
   </body>
 </html>

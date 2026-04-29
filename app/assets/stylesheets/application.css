@@ -14,6 +14,7 @@
   --color-black:    #000000;
   --color-charcoal: #2B2B2B;
   --color-brown:    #5C3D1E;
+  --color-gold:     #C9A56A;
   --color-sand:     #EFE6D8;
   --color-bg:       #F5F3EF;
   --color-border:   #E8E5E0;
@@ -586,4 +587,355 @@ dt:last-of-type + dd,
   font-size: 1.75rem;
   font-weight: 700;
   margin-bottom: 0.25rem;
+}
+
+
+/* ============================================================
+   PUBLIC SITE — NAV
+   ============================================================ */
+
+.site-header {
+  background-color: var(--color-black);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  height: 4rem;
+}
+
+.site-nav__brand {
+  font-family: var(--font-script);
+  font-size: 1.75rem;
+  color: var(--color-gold);
+  text-decoration: none;
+  line-height: 1;
+}
+
+.site-nav__links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.site-nav__links a {
+  color: var(--color-white);
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.site-nav__links a:hover {
+  color: var(--color-gold);
+}
+
+
+/* ============================================================
+   PUBLIC SITE — HERO
+   ============================================================ */
+
+.site-hero {
+  background-color: var(--color-bg);
+  padding: 5rem 2rem 4.5rem;
+  text-align: center;
+}
+
+.site-hero__inner {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.site-hero__title {
+  font-family: var(--font-script);
+  font-size: 3.75rem;
+  font-weight: 400;
+  color: var(--color-brown);
+  margin: 0 0 1rem;
+  line-height: 1.2;
+}
+
+.site-hero__heading {
+  font-family: var(--font-sans);
+  font-size: 1.625rem;
+  font-weight: 700;
+  color: var(--color-charcoal);
+  margin: 0 0 1.25rem;
+  line-height: 1.3;
+}
+
+.site-hero__body {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  color: var(--color-muted);
+  margin: 0 0 2.5rem;
+  line-height: 1.7;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.site-hero__actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.site-btn--outline {
+  background-color: transparent;
+  color: var(--color-charcoal);
+  border: 1px solid var(--color-charcoal);
+}
+
+.site-btn--outline:hover {
+  color: var(--color-charcoal);
+  background-color: rgba(0, 0, 0, 0.04);
+}
+
+.site-btn--outline-light {
+  background-color: var(--color-white);
+  color: var(--color-charcoal);
+  border: 1px solid var(--color-border);
+}
+
+.site-btn--outline-light:hover {
+  color: var(--color-charcoal);
+  background-color: var(--color-sand);
+}
+
+
+/* ============================================================
+   PUBLIC SITE — PILLARS
+   ============================================================ */
+
+.site-pillars {
+  background-color: #3a3836;
+  padding: 4rem 2rem;
+}
+
+.pillar-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  text-align: center;
+}
+
+.pillar__icon {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.pillar__icon svg {
+  width: 2rem;
+  height: 2rem;
+  color: var(--color-gold);
+}
+
+.pillar__title {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-white);
+  margin: 0 0 0.625rem;
+}
+
+.pillar__desc {
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.55);
+  margin: 0;
+  line-height: 1.65;
+}
+
+
+/* ============================================================
+   PUBLIC SITE — SECTIONS
+   ============================================================ */
+
+.site-section {
+  width: 100%;
+  padding: 5rem 2rem;
+}
+
+.site-section--dark {
+  background-color: var(--color-black);
+}
+
+.site-section--charcoal {
+  background-color: #333030;
+}
+
+.site-section__inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.site-section__header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.site-section__title {
+  font-family: var(--font-script);
+  font-size: 3.5rem;
+  color: var(--color-gold);
+  margin: 0 0 0.75rem;
+  line-height: 1.2;
+  font-weight: 400;
+}
+
+.site-section__subtitle {
+  font-family: var(--font-sans);
+  font-size: 1.0625rem;
+  color: rgba(255, 255, 255, 0.75);
+  margin: 0;
+}
+
+.site-section__cta {
+  text-align: center;
+  margin-top: 2.5rem;
+}
+
+
+/* ============================================================
+   PUBLIC SITE — PET CARDS
+   ============================================================ */
+
+.pet-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.pet-card {
+  background-color: var(--color-sand);
+  border-radius: 0.75rem;
+  overflow: hidden;
+}
+
+.pet-card__photo {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+}
+
+.pet-card__photo--placeholder {
+  background-color: #888;
+}
+
+.pet-card__body {
+  padding: 1rem 1.25rem 1.25rem;
+}
+
+.pet-card__name-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.375rem;
+}
+
+.pet-card__name {
+  font-family: var(--font-sans);
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--color-charcoal);
+}
+
+.pet-card__detail {
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  color: var(--color-charcoal);
+  margin: 0;
+  line-height: 1.6;
+}
+
+
+/* ============================================================
+   PUBLIC SITE — EVENT CARDS
+   ============================================================ */
+
+.event-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.event-card {
+  background-color: var(--color-sand);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+}
+
+.event-card__title {
+  font-family: var(--font-sans);
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--color-charcoal);
+  margin: 0 0 0.75rem;
+}
+
+.event-card__meta {
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  color: var(--color-charcoal);
+  margin: 0 0 0.25rem;
+}
+
+.event-card__desc {
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  color: var(--color-charcoal);
+  margin: 0.75rem 0 0;
+  line-height: 1.6;
+}
+
+
+/* ============================================================
+   PUBLIC SITE — SHARED COMPONENTS
+   ============================================================ */
+
+.site-badge {
+  display: inline-block;
+  background-color: var(--color-brown);
+  color: var(--color-white);
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.25rem 0.75rem;
+  border-radius: 99px;
+  white-space: nowrap;
+}
+
+.site-btn {
+  display: inline-block;
+  background-color: var(--color-brown);
+  color: var(--color-white);
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  padding: 0.75rem 2rem;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  transition: opacity 0.15s ease;
+}
+
+.site-btn:hover {
+  opacity: 0.88;
+  color: var(--color-white);
 }
