@@ -116,3 +116,42 @@ pets_data.each do |attrs|
 end
 
 puts "[seeds] Done — #{Pet.count} pets, #{User.count} users."
+
+# ----------------------------------------------------------------
+# Events
+# ----------------------------------------------------------------
+events_data = [
+  {
+    name: "Community Adoption Day",
+    event_date: Time.zone.local(2026, 6, 20, 10, 0),
+    location: "Casa Xolo Foundation — Future Location",
+    description: "Join us for a special adoption event featuring all of our available pets. Meet and greet potential new family members!"
+  },
+  {
+    name: "Volunteer Orientation",
+    event_date: Time.zone.local(2026, 6, 27, 14, 0),
+    location: "Online Virtual Event",
+    description: "Learn how you can help make a difference in the lives of rescued animals. All volunteers welcome!"
+  },
+  {
+    name: "Trail Walk & Community Meetup",
+    event_date: Time.zone.local(2026, 7, 12, 9, 0),
+    location: "Barton Creek Greenbelt, Austin TX",
+    description: "Bring your dogs and join us for a scenic group walk celebrating our love of animals, nature, and community."
+  },
+  {
+    name: "Cultural Workshop: Día de los Muertos",
+    event_date: Time.zone.local(2026, 11, 1, 11, 0),
+    location: "Casa Xolo Foundation — Future Location",
+    description: "A hands-on workshop honoring our heritage through storytelling, art, and the animals we love."
+  }
+]
+
+events_data.each do |attrs|
+  event = Event.find_or_initialize_by(name: attrs[:name])
+  event.assign_attributes(attrs) if event.new_record?
+  event.save!
+  puts "[seeds] #{event.previously_new_record? ? "Created" : "Found"} event: #{event.name}"
+end
+
+puts "[seeds] Done — #{Event.count} events."
