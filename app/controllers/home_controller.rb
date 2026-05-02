@@ -3,5 +3,6 @@ class HomeController < ApplicationController
 
   def index
     @pets = Pet.where(status: :available).limit(4)
+    @events = Event.upcoming.limit(4)
   end
 end

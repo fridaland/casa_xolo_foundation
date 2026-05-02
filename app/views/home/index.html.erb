@@ -92,19 +92,18 @@
     </div>
 
     <div class="event-grid">
-      <div class="event-card">
-        <h3 class="event-card__title">Community Adoption Day</h3>
-        <p class="event-card__meta">February 15, 2026</p>
-        <p class="event-card__meta">Casa Xolo Foundation &mdash; Future Location</p>
-        <p class="event-card__desc">Join us for a special adoption event featuring all of our available pets. Meet and greet potential new family members!</p>
-      </div>
-
-      <div class="event-card">
-        <h3 class="event-card__title">Volunteer Orientation</h3>
-        <p class="event-card__meta">February 22, 2026</p>
-        <p class="event-card__meta">Online Virtual Event</p>
-        <p class="event-card__desc">Learn how you can help make a difference in the lives of rescued animals. All volunteers welcome!</p>
-      </div>
+      <% @events.each do |event| %>
+        <div class="event-card">
+          <h3 class="event-card__title"><%= event.name %></h3>
+          <p class="event-card__meta"><%= event.event_date.strftime("%B %-d, %Y") %></p>
+          <% if event.location.present? %>
+            <p class="event-card__meta"><%= event.location %></p>
+          <% end %>
+          <% if event.description.present? %>
+            <p class="event-card__desc"><%= event.description %></p>
+          <% end %>
+        </div>
+      <% end %>
     </div>
 
     <div class="site-section__cta">
