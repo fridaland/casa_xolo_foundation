@@ -55,29 +55,27 @@
     </div>
 
     <div class="pet-grid">
-      <div class="pet-card">
-        <div class="pet-card__photo pet-card__photo--placeholder"></div>
-        <div class="pet-card__body">
-          <div class="pet-card__name-row">
-            <span class="pet-card__name">Luna</span>
-            <span class="site-badge">Available</span>
+      <% @pets.each do |pet| %>
+        <div class="pet-card">
+          <% if pet.photos.attached? %>
+            <%= image_tag pet.photos.first, alt: pet.name, class: "pet-card__photo" %>
+          <% else %>
+            <div class="pet-card__photo pet-card__photo--placeholder"></div>
+          <% end %>
+          <div class="pet-card__body">
+            <div class="pet-card__name-row">
+              <span class="pet-card__name"><%= pet.name %></span>
+              <span class="site-badge"><%= pet.status&.capitalize %></span>
+            </div>
+            <% if pet.breed.present? %>
+              <p class="pet-card__detail"><%= pet.breed %></p>
+            <% end %>
+            <% if pet.age.present? %>
+              <p class="pet-card__detail"><%= pluralize(pet.age, "year") %></p>
+            <% end %>
           </div>
-          <p class="pet-card__detail">Mixed Breed</p>
-          <p class="pet-card__detail">2 years</p>
         </div>
-      </div>
-
-      <div class="pet-card">
-        <div class="pet-card__photo pet-card__photo--placeholder"></div>
-        <div class="pet-card__body">
-          <div class="pet-card__name-row">
-            <span class="pet-card__name">Simba</span>
-            <span class="site-badge">Available</span>
-          </div>
-          <p class="pet-card__detail">Domestic Shorthair</p>
-          <p class="pet-card__detail">1 year</p>
-        </div>
-      </div>
+      <% end %>
     </div>
 
     <div class="site-section__cta">
