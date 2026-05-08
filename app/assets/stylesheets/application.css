@@ -699,27 +699,6 @@ dt:last-of-type + dd,
   flex-wrap: wrap;
 }
 
-.site-btn--outline {
-  background-color: transparent;
-  color: var(--color-charcoal);
-  border: 1px solid var(--color-charcoal);
-}
-
-.site-btn--outline:hover {
-  color: var(--color-charcoal);
-  background-color: rgba(0, 0, 0, 0.04);
-}
-
-.site-btn--outline-light {
-  background-color: var(--color-white);
-  color: var(--color-charcoal);
-  border: 1px solid var(--color-border);
-}
-
-.site-btn--outline-light:hover {
-  color: var(--color-charcoal);
-  background-color: var(--color-sand);
-}
 
 
 /* ============================================================
@@ -942,6 +921,114 @@ dt:last-of-type + dd,
 .site-btn:hover {
   opacity: 0.88;
   color: var(--color-white);
+}
+
+.site-btn--outline {
+  background-color: transparent;
+  color: var(--color-charcoal);
+  border: 1px solid var(--color-charcoal);
+}
+
+.site-btn--outline:hover {
+  color: var(--color-charcoal);
+  background-color: rgba(0, 0, 0, 0.04);
+}
+
+.site-btn--outline-light {
+  background-color: var(--color-white);
+  color: var(--color-charcoal);
+  border: 1px solid var(--color-border);
+}
+
+.site-btn--outline-light:hover {
+  color: var(--color-charcoal);
+  background-color: var(--color-sand);
+}
+
+.site-btn {
+  &.site-btn--secondary {
+    background-color: #D2D2D2;
+    color: var(--color-charcoal);
+    border: 1px solid #D2D2D2;
+  }
+
+  &.site-btn--secondary:hover {
+    background-color: #ddd9d3;
+    color: var(--color-charcoal);
+  }
+
+  &.site-btn--secondary:active {
+    background-color: #d0cbc4;
+    color: var(--color-charcoal);
+  }
+}
+
+
+/* ============================================================
+   PUBLIC SITE — ABOUT PAGE
+   ============================================================ */
+
+.about-hero {
+  padding: 4rem 2rem 3rem;
+  text-align: center;
+}
+
+.about-content {
+  background-color: var(--color-black);
+  padding: 0 2rem 5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.about-card {
+  background-color: var(--color-sand);
+  border-radius: 0.75rem;
+  max-width: 760px;
+  width: 100%;
+  padding: 3rem 3.5rem;
+}
+
+.about-card__heading {
+  font-family: var(--font-sans);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-charcoal);
+  margin: 2rem 0 0.75rem;
+}
+
+.about-card__heading:first-child {
+  margin-top: 0;
+}
+
+.about-card__text {
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  color: var(--color-charcoal);
+  line-height: 1.7;
+  margin: 0;
+}
+
+.about-card__list {
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  color: var(--color-charcoal);
+  line-height: 1.9;
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+.about-card__divider {
+  border: none;
+  border-top: 1px solid var(--color-border);
+  margin: 2rem 0 0;
+}
+
+.about-card__actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
 }
 
 
