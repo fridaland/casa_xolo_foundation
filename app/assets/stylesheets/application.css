@@ -50,6 +50,10 @@ body {
   background-color: var(--admin-bg);
 }
 
+body.body--dark {
+  background-color: var(--color-black);
+}
+
 a {
   color: inherit;
   text-decoration: none;
@@ -938,4 +942,195 @@ dt:last-of-type + dd,
 .site-btn:hover {
   opacity: 0.88;
   color: var(--color-white);
+}
+
+
+/* ============================================================
+   PUBLIC SITE — VOLUNTEER PAGE
+   ============================================================ */
+
+.volunteer-hero {
+  background-color: var(--color-black);
+  padding: 5rem 2rem 4rem;
+  text-align: center;
+}
+
+.volunteer-hero__subtitle {
+  font-family: var(--font-sans);
+  font-size: 1.0625rem;
+  color: rgba(255, 255, 255, 0.7);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+.volunteer-content {
+  background-color: var(--color-black);
+  padding: 0 2rem 5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.volunteer-card {
+  background-color: var(--color-sand);
+  border-radius: 0.75rem;
+  max-width: 900px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.volunteer-card__image {
+  width: 100%;
+  aspect-ratio: 16 / 7;
+  object-fit: cover;
+  display: block;
+}
+
+.volunteer-card__body {
+  padding: 2.5rem 3rem 3rem;
+}
+
+.volunteer-card__heading {
+  font-family: var(--font-sans);
+  font-size: 1.375rem;
+  font-weight: 700;
+  color: var(--color-charcoal);
+  margin: 0 0 1rem;
+}
+
+.volunteer-card__text {
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  color: var(--color-charcoal);
+  line-height: 1.7;
+  margin: 0 0 1rem;
+}
+
+.volunteer-card__text:last-child {
+  margin-bottom: 0;
+}
+
+.volunteer-opportunities {
+  background-color: var(--color-black);
+  padding: 1rem 2rem 4rem;
+}
+
+.volunteer-opportunities__title {
+  font-family: var(--font-sans);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--color-muted);
+  text-align: center;
+  margin: 0 0 2rem;
+}
+
+.volunteer-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.volunteer-opp-card {
+  background-color: var(--color-sand);
+  border-radius: 0.75rem;
+  padding: 1.75rem 2rem;
+}
+
+.volunteer-opp-card__icon {
+  width: 2.75rem;
+  height: 2.75rem;
+  background-color: var(--color-bg);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+}
+
+.volunteer-opp-card__icon svg {
+  width: 1.25rem;
+  height: 1.25rem;
+  color: var(--color-brown);
+}
+
+.volunteer-opp-card__title {
+  font-family: var(--font-sans);
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: var(--color-charcoal);
+  margin: 0 0 0.5rem;
+}
+
+.volunteer-opp-card__desc {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  color: var(--color-charcoal);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.volunteer-requirements-section {
+  background-color: var(--color-black);
+  padding: 0 2rem 4rem;
+  display: flex;
+  justify-content: center;
+}
+
+.volunteer-requirements {
+  background-color: var(--color-sand);
+  border-radius: 0.75rem;
+  max-width: 900px;
+  width: 100%;
+  padding: 2.5rem 3rem;
+}
+
+.volunteer-requirements__title {
+  font-family: var(--font-sans);
+  font-size: 1.375rem;
+  font-weight: 700;
+  color: var(--color-charcoal);
+  margin: 0 0 1.5rem;
+}
+
+.volunteer-requirements__columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.volunteer-requirements__column-title {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-charcoal);
+  margin: 0 0 0.75rem;
+}
+
+.volunteer-requirements__list {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  color: var(--color-charcoal);
+  line-height: 1.9;
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+.volunteer-cta {
+  background-color: var(--color-black);
+  padding: 3rem 2rem 5rem;
+  text-align: center;
+}
+
+.volunteer-cta__contact {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  color: var(--color-muted);
+  margin: 1.25rem 0 0;
+}
+
+.volunteer-cta__contact a {
+  color: var(--color-muted);
+  text-decoration: underline;
 }
