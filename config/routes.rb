@@ -12,8 +12,13 @@ Rails.application.routes.draw do
     resources :transactions
     resources :users
     resources :volunteers
+    resources :volunteer_applications
 
     root to: "board_members#index"
+  end
+
+  resources :volunteer_applications, only: [:new, :create] do
+    get :thank_you, on: :collection
   end
   devise_for :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
