@@ -37,22 +37,22 @@
 
       <div class="volunteer-form__row">
         <div class="volunteer-form__field">
-          <%= f.label :phone, "Phone Number", class: "volunteer-form__label" %>
-          <%= f.telephone_field :phone, class: "volunteer-form__input", placeholder: "(555) 555-5555" %>
+          <%= f.label :phone, "Phone Number *", class: "volunteer-form__label" %>
+          <%= f.telephone_field :phone, class: "volunteer-form__input", placeholder: "(555) 555-5555", required: true %>
         </div>
         <div class="volunteer-form__field">
-          <%= f.label :position, "Area of Interest", class: "volunteer-form__label" %>
+          <%= f.label :position, "Area of Interest *", class: "volunteer-form__label" %>
           <%= f.select :position,
                 VolunteerApplication::POSITIONS,
                 { include_blank: "Select an area..." },
-                class: "volunteer-form__input volunteer-form__select" %>
+                class: "volunteer-form__input volunteer-form__select", required: true %>
         </div>
       </div>
 
       <div class="volunteer-form__field">
-        <%= f.label :message, "Tell Us About Yourself", class: "volunteer-form__label" %>
+        <%= f.label :message, "Tell Us About Yourself *", class: "volunteer-form__label" %>
         <%= f.text_area :message, class: "volunteer-form__input volunteer-form__textarea",
-              placeholder: "Why do you want to volunteer? Any relevant experience or skills?", rows: 5 %>
+              placeholder: "Why do you want to volunteer? Any relevant experience or skills?", rows: 5, required: true %>
       </div>
 
       <div class="volunteer-form__field">
