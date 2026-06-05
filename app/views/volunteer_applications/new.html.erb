@@ -1,0 +1,70 @@
+<% content_for :body_class, "body--dark" %>
+<% content_for :title, "Volunteer Application" %>
+
+<section class="volunteer-hero">
+  <h1 class="site-section__title">Volunteer Application</h1>
+  <p class="volunteer-hero__subtitle">
+    Fill out the form below and we'll be in touch about volunteering opportunities.
+  </p>
+</section>
+
+<section class="volunteer-form-section">
+  <div class="volunteer-form-card">
+    <% if @volunteer_application.errors.any? %>
+      <div class="volunteer-form__errors">
+        <p class="volunteer-form__errors-heading">
+          Please fix the following <%= pluralize(@volunteer_application.errors.count, "error") %>:
+        </p>
+        <ul class="volunteer-form__errors-list">
+          <% @volunteer_application.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <%= form_with model: @volunteer_application, class: "volunteer-form" do |f| %>
+      <div class="volunteer-form__row">
+        <div class="volunteer-form__field">
+          <%= f.label :name, "Full Name *", class: "volunteer-form__label" %>
+          <%= f.text_field :name, class: "volunteer-form__input", placeholder: "Your full name", required: true %>
+        </div>
+        <div class="volunteer-form__field">
+          <%= f.label :email, "Email Address *", class: "volunteer-form__label" %>
+          <%= f.email_field :email, class: "volunteer-form__input", placeholder: "you@example.com", required: true %>
+        </div>
+      </div>
+
+      <div class="volunteer-form__row">
+        <div class="volunteer-form__field">
+          <%= f.label :phone, "Phone Number", class: "volunteer-form__label" %>
+          <%= f.telephone_field :phone, class: "volunteer-form__input", placeholder: "(555) 555-5555" %>
+        </div>
+        <div class="volunteer-form__field">
+          <%= f.label :position, "Area of Interest", class: "volunteer-form__label" %>
+          <%= f.select :position,
+                VolunteerApplication::POSITIONS,
+                { include_blank: "Select an area..." },
+                class: "volunteer-form__input volunteer-form__select" %>
+        </div>
+      </div>
+
+      <div class="volunteer-form__field">
+        <%= f.label :message, "Tell Us About Yourself", class: "volunteer-form__label" %>
+        <%= f.text_area :message, class: "volunteer-form__input volunteer-form__textarea",
+              placeholder: "Why do you want to volunteer? Any relevant experience or skills?", rows: 5 %>
+      </div>
+
+      <div class="volunteer-form__field">
+        <%= f.label :resume, "Resume (optional)", class: "volunteer-form__label" %>
+        <%= f.file_field :resume, class: "volunteer-form__file", accept: ".pdf,.doc,.docx" %>
+        <p class="volunteer-form__hint">Accepted formats: PDF, DOC, DOCX</p>
+      </div>
+
+      <div class="volunteer-form__actions">
+        <%= f.submit "Submit Application", class: "site-btn" %>
+        <%= link_to "Cancel", volunteer_path, class: "site-btn site-btn--outline-light" %>
+      </div>
+    <% end %>
+  </div>
+</section>

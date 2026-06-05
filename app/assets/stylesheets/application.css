@@ -1221,3 +1221,192 @@ dt:last-of-type + dd,
   color: var(--color-muted);
   text-decoration: underline;
 }
+
+
+/* ============================================================
+   PUBLIC SITE — VOLUNTEER APPLICATION FORM
+   ============================================================ */
+
+.volunteer-form-section {
+  background-color: var(--color-black);
+  padding: 0 2rem 5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.volunteer-form-card {
+  background-color: var(--color-sand);
+  border-radius: 0.75rem;
+  max-width: 760px;
+  width: 100%;
+  padding: 3rem 3.5rem;
+}
+
+.volunteer-form__errors {
+  background-color: #fef2f2;
+  border: 1px solid #fca5a5;
+  border-radius: 0.5rem;
+  padding: 1rem 1.25rem;
+  margin-bottom: 1.75rem;
+}
+
+.volunteer-form__errors-heading {
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: #b91c1c;
+  margin: 0 0 0.5rem;
+}
+
+.volunteer-form__errors-list {
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  color: #b91c1c;
+  margin: 0;
+  padding-left: 1.25rem;
+  line-height: 1.7;
+}
+
+.volunteer-form__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.volunteer-form__field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+  margin-bottom: 1.25rem;
+}
+
+.volunteer-form__row .volunteer-form__field {
+  margin-bottom: 0;
+}
+
+.volunteer-form__label {
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-charcoal);
+}
+
+.volunteer-form__input {
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  color: var(--color-charcoal);
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+  padding: 0.625rem 0.875rem;
+  outline: none;
+  transition: border-color 0.15s ease;
+  width: 100%;
+}
+
+.volunteer-form__input:focus {
+  border-color: var(--color-brown);
+  box-shadow: 0 0 0 2px rgba(92, 61, 30, 0.12);
+}
+
+.volunteer-form__textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.volunteer-form__select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%235C3D1E' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.875rem center;
+  padding-right: 2.5rem;
+  cursor: pointer;
+}
+
+.volunteer-form__file {
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  color: var(--color-charcoal);
+  cursor: pointer;
+}
+
+.volunteer-form__hint {
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  color: #6b7280;
+  margin: 0.25rem 0 0;
+}
+
+.volunteer-form__actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 600px) {
+  .volunteer-form-card {
+    padding: 2rem 1.5rem;
+  }
+
+  .volunteer-form__row {
+    grid-template-columns: 1fr;
+  }
+}
+
+.volunteer-thankyou-card {
+  background-color: var(--color-sand);
+  border-radius: 0.75rem;
+  max-width: 600px;
+  width: 100%;
+  padding: 3.5rem 3.5rem 3rem;
+  text-align: center;
+}
+
+.volunteer-thankyou__icon {
+  width: 4rem;
+  height: 4rem;
+  background-color: var(--color-brown);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.75rem;
+}
+
+.volunteer-thankyou__icon svg {
+  width: 2rem;
+  height: 2rem;
+  color: var(--color-white);
+}
+
+.volunteer-thankyou__heading {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--color-charcoal);
+  margin: 0 0 1rem;
+}
+
+.volunteer-thankyou__text {
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  color: var(--color-charcoal);
+  line-height: 1.7;
+  margin: 0 0 2rem;
+}
+
+.volunteer-thankyou__text a {
+  color: var(--color-brown);
+  text-decoration: underline;
+}
+
+.volunteer-thankyou__actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}

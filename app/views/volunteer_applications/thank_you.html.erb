@@ -1,0 +1,33 @@
+<% content_for :body_class, "body--dark" %>
+<% content_for :title, "Application Received" %>
+
+<section class="volunteer-hero">
+  <h1 class="site-section__title">Thank You for Your Application!</h1>
+  <p class="volunteer-hero__subtitle">
+    We've received your volunteer application and we're excited to hear from you.
+  </p>
+</section>
+
+<section class="volunteer-form-section">
+  <div class="volunteer-thankyou-card">
+    <div class="volunteer-thankyou__icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="10"/>
+        <path d="M8 12l3 3 5-5"/>
+      </svg>
+    </div>
+
+    <h2 class="volunteer-thankyou__heading">We'll be in touch soon</h2>
+    <p class="volunteer-thankyou__text">
+      Our volunteer coordinator will review your application and reach out within a few days.
+      In the meantime, feel free to email us at
+      <a href="mailto:alondra@casaxolofoundation.org">alondra@casaxolofoundation.org</a>
+      with any questions.
+    </p>
+
+    <div class="volunteer-thankyou__actions">
+      <%= link_to "Back to Volunteer Page", volunteer_path, class: "site-btn" %>
+      <%= link_to "Home", home_path, class: "site-btn site-btn--outline-light" %>
+    </div>
+  </div>
+</section>
