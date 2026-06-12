@@ -6,4 +6,8 @@ class PagesController < ApplicationController
 
   def about
   end
+
+  def adopt
+    @pets = Pet.all
+  end
 end
