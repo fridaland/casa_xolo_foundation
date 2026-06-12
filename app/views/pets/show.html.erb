@@ -1,0 +1,73 @@
+<section class="pet-show">
+  <div class="pet-show__inner">
+    <div class="pet-show__back">
+      <%= link_to "Back to All Pets", pets_path, class: "pet-show__back-link" %>
+    </div>
+
+    <div class="pet-show__main">
+      <div class="pet-show__photo-column">
+        <% if @pet.photos.attached? %>
+          <%= image_tag @pet.photos.first, alt: @pet.name, class: "pet-show__photo" %>
+        <% else %>
+          <div class="pet-show__photo pet-show__photo--placeholder"></div>
+        <% end %>
+      </div>
+
+      <div class="pet-show__info-card">
+        <div class="pet-show__header">
+          <div>
+            <h1 class="pet-show__name"><%= @pet.name %></h1>
+            <% if @pet.breed.present? %>
+              <p class="pet-show__breed"><%= @pet.breed %></p>
+            <% end %>
+          </div>
+          <span class="site-badge pet-show__status-badge"><%= @pet.status&.capitalize %></span>
+        </div>
+
+        <hr class="pet-show__divider">
+
+        <div class="pet-show__attributes">
+          <div class="pet-show__attribute">
+            <span class="pet-show__attribute-label">Species</span>
+            <span class="pet-show__attribute-value"><%= @pet.species&.capitalize %></span>
+          </div>
+          <div class="pet-show__attribute">
+            <span class="pet-show__attribute-label">Age</span>
+            <span class="pet-show__attribute-value"><%= pluralize(@pet.age, "year") %></span>
+          </div>
+        </div>
+
+        <div class="pet-show__about">
+          <h2 class="pet-show__about-heading">About <%= @pet.name %></h2>
+          <p class="pet-show__about-text"><%= @pet.description %></p>
+        </div>
+
+        <div class="pet-show__actions">
+          <%= link_to "#", class: "site-btn pet-show__adopt-btn" do %>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="pet-show__adopt-icon">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+            </svg>
+            Apply to Adopt <%= @pet.name %>
+          <% end %>
+          <p class="pet-show__contact">Contact us at <%= mail_to "adopt@casaxolo.org" %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="pet-show__adoption-section">
+  <div class="pet-show__inner">
+    <div class="pet-show__adoption-card">
+      <h2 class="pet-show__adoption-title">Adoption Information</h2>
+      <p class="pet-show__adoption-subtitle">All of our animals are:</p>
+
+      <ul class="pet-show__adoption-list">
+        <li>Veterinary examined</li>
+        <li>Up-to-date on vaccinations</li>
+        <li>Spayed or neutered</li>
+        <li>Microchipped for identification</li>
+      </ul>
+    </div>
+  </div>
+</section>

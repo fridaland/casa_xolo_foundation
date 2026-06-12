@@ -1410,3 +1410,237 @@ dt:last-of-type + dd,
   gap: 1rem;
   flex-wrap: wrap;
 }
+
+
+/* ============================================================
+   PUBLIC SITE — PET SHOW PAGE
+   ============================================================ */
+
+.pet-show {
+  background-color: var(--color-black);
+  padding: 2rem 2rem 4rem;
+}
+
+.pet-show__inner {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.pet-show__back {
+  margin-bottom: 1.5rem;
+}
+
+.pet-show__back-link {
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  color: var(--color-sand);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+}
+
+.pet-show__back-link::before {
+  content: "\2190";
+}
+
+.pet-show__back-link:hover {
+  color: var(--color-gold);
+}
+
+.pet-show__main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: stretch;
+}
+
+@media (max-width: 720px) {
+  .pet-show__main {
+    grid-template-columns: 1fr;
+  }
+}
+
+.pet-show__photo-column {
+  background-color: var(--color-sand);
+  border-radius: 0.75rem;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pet-show__photo {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.pet-show__photo--placeholder {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  background-color: var(--color-charcoal);
+}
+
+.pet-show__info-card {
+  background-color: var(--color-sand);
+  border-radius: 0.75rem;
+  padding: 2rem;
+}
+
+.pet-show__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0;
+}
+
+.pet-show__status-badge {
+  padding: 0.375rem 1rem;
+}
+
+.pet-show__divider {
+  border: none;
+  border-top: 1px solid var(--color-muted);
+  margin: 1.5rem 0;
+}
+
+.pet-show__name {
+  font-family: var(--font-sans);
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--color-charcoal);
+  margin: 0;
+}
+
+.pet-show__breed {
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  color: var(--color-muted);
+  margin: 0.25rem 0 0;
+}
+
+.pet-show__attributes {
+  display: flex;
+  gap: 3rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.pet-show__attribute-label {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.25rem;
+}
+
+.pet-show__attribute-value {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--color-charcoal);
+}
+
+.pet-show__about {
+  margin-bottom: 1.5rem;
+}
+
+.pet-show__about-heading {
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-muted);
+  margin: 0 0 0.5rem;
+}
+
+.pet-show__about-text {
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--color-charcoal);
+  margin: 0;
+}
+
+.pet-show__actions {
+  text-align: center;
+}
+
+.pet-show__adopt-btn {
+  width: 100%;
+  text-align: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.pet-show__adopt-icon {
+  width: 1.125rem;
+  height: 1.125rem;
+}
+
+.pet-show__contact {
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  color: var(--color-muted);
+  margin: 0.75rem 0 0;
+}
+
+.pet-show__adoption-section {
+  background-color: var(--color-black);
+  padding: 0 2rem 4rem;
+}
+
+.pet-show__adoption-card {
+  max-width: 960px;
+  margin: 0 auto;
+  background-color: var(--color-sand);
+  border-radius: 0.75rem;
+  padding: 2rem;
+}
+
+.pet-show__adoption-title {
+  font-family: var(--font-sans);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-charcoal);
+  margin: 0 0 0.5rem;
+}
+
+.pet-show__adoption-subtitle {
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  color: var(--color-muted);
+  margin: 0 0 1.5rem;
+}
+
+.pet-show__adoption-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.pet-show__adoption-list li {
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  color: var(--color-charcoal);
+  padding-left: 1.25rem;
+  position: relative;
+}
+
+.pet-show__adoption-list li::before {
+  content: "\2022";
+  position: absolute;
+  left: 0;
+  color: var(--color-brown);
+}
