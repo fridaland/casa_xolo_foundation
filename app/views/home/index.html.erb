@@ -56,7 +56,7 @@
 
     <div class="pet-grid">
       <% @pets.each do |pet| %>
-        <div class="pet-card">
+        <%= link_to pet_path(pet), class: "pet-card" do %>
           <% if pet.photos.attached? %>
             <%= image_tag pet.photos.first, alt: pet.name, class: "pet-card__photo" %>
           <% else %>
@@ -74,7 +74,7 @@
               <p class="pet-card__detail"><%= pluralize(pet.age, "year") %></p>
             <% end %>
           </div>
-        </div>
+        <% end %>
       <% end %>
     </div>
 
