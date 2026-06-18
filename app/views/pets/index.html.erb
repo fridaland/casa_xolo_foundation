@@ -1,0 +1,76 @@
+<% content_for :body_class, "body--dark" %>
+
+<section class="site-section--dark pet-index__hero">
+  <h1 class="site-section__title">Adoptable Pets</h1>
+  <p class="pet-index__subtitle">Find your perfect companion and give a rescued animal a loving home</p>
+</section>
+
+<section class="site-section site-section--dark">
+  <div class="site-section__inner">
+    <div class="pet-index__filter-card">
+      <%= form_with url: pets_path, method: :get, local: true, class: "pet-index__filters" do %>
+        <div class="pet-index__filter-field">
+          <%= label_tag :species, "Filter by Species", class: "pet-index__filter-label" %>
+          <%= select_tag :species,
+            options_for_select([["All Species", ""], ["Dog", "dog"], ["Cat", "cat"], ["Other", "other"]], params[:species]),
+            class: "pet-index__filter-select",
+            onchange: "this.form.submit()" %>
+        </div>
+
+        <div class="pet-index__filter-field">
+          <%= label_tag :status, "Filter by Status", class: "pet-index__filter-label" %>
+          <%= select_tag :status,
+            options_for_select([["All Statuses", ""], ["Available", "available"], ["Urgent", "urgent"]], params[:status]),
+            class: "pet-index__filter-select",
+            onchange: "this.form.submit()" %>
+        </div>
+      <% end %>
+    </div>
+
+    <p class="pet-index__count">Showing <%= pluralize(@pets.count, "pet") %></p>
+
+    <div class="pet-grid">
+      <% @pets.each do |pet| %>
+        <%= link_to pet_path(pet), class: "pet-card" do %>
+          <% if pet.photos.attached? %>
+            <%= image_tag pet.photos.first, alt: pet.name, class: "pet-card__photo" %>
+          <% else %>
+            <div class="pet-card__photo pet-card__photo--placeholder"></div>
+          <% end %>
+          <div class="pet-card__body">
+            <div class="pet-card__name-row">
+              <span class="pet-card__name"><%= pet.name %></span>
+              <span class="site-badge"><%= pet.status&.capitalize %></span>
+            </div>
+            <% if pet.breed.present? %>
+              <p class="pet-card__detail"><%= pet.breed %></p>
+            <% end %>
+            <% if pet.age.present? %>
+              <p class="pet-card__detail"><%= pluralize(pet.age, "year") %></p>
+            <% end %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</section>
+
+<section class="site-section site-section--charcoal">
+  <div class="site-section__inner">
+    <div class="pet-index__process-card">
+      <h2 class="pet-index__process-title">Adoption Process</h2>
+      <p class="pet-index__process-subtitle">Ready to adopt? Our adoption process is designed to ensure the best match between you and your new companion. Here's what to expect:</p>
+
+      <ol class="pet-index__process-steps">
+        <li>Browse our available pets and find one you're interested in</li>
+        <li>Submit an adoption application</li>
+        <li>Meet the pet during a scheduled visit</li>
+        <li>Complete the home check and finalize adoption</li>
+      </ol>
+
+      <div class="pet-index__process-cta">
+        <a href="#" class="site-btn">Start Your Adoption Application</a>
+      </div>
+    </div>
+  </div>
+</section>
