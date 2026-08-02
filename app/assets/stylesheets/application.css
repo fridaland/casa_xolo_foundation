@@ -700,7 +700,6 @@ dt:last-of-type + dd,
 }
 
 
-
 /* ============================================================
    PUBLIC SITE — PILLARS
    ============================================================ */
@@ -1643,4 +1642,103 @@ dt:last-of-type + dd,
   position: absolute;
   left: 0;
   color: var(--color-brown);
+}
+
+
+/* ============================================================
+   PUBLIC SITE — PETS INDEX PAGE
+   ============================================================ */
+
+.pet-index__hero {
+  padding: 4rem 2rem 0;
+  text-align: center;
+}
+
+.pet-index__subtitle {
+  font-family: var(--font-sans);
+  font-size: 1.0625rem;
+  color: var(--color-muted);
+  max-width: 600px;
+  margin: 0.5rem auto 0;
+}
+
+.pet-index__filter-card {
+  background-color: var(--color-sand);
+  border-radius: 0.75rem;
+  padding: 1.5rem 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.pet-index__filters {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.pet-index__filter-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+}
+
+.pet-index__filter-label {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-charcoal);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.pet-index__filter-select {
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  color: var(--color-charcoal);
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+  padding: 0.5rem 2rem 0.5rem 0.75rem;
+  cursor: pointer;
+}
+
+.pet-index__count {
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  color: var(--color-sand);
+  margin: 0 0 1.5rem;
+}
+
+.pet-index__process-card {
+  background-color: var(--color-sand);
+  border-radius: 0.75rem;
+  padding: 2rem;
+}
+
+.pet-index__process-title {
+  font-family: var(--font-sans);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-charcoal);
+  margin: 0 0 0.5rem;
+}
+
+.pet-index__process-subtitle {
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  color: var(--color-charcoal);
+  line-height: 1.6;
+  margin: 0 0 1.5rem;
+}
+
+.pet-index__process-steps {
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  color: var(--color-charcoal);
+  line-height: 1.8;
+  padding-left: 1.25rem;
+  margin: 0 0 1.5rem;
+}
+
+.pet-index__process-cta {
+  margin-top: 1.5rem;
 }
