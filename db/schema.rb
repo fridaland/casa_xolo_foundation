@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_06_05_151429) do
+ActiveRecord::Schema[8.1].define(version: 2026_08_16_120000) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -40,6 +40,31 @@ ActiveRecord::Schema[8.1].define(version: 2026_06_05_151429) do
     t.bigint "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
+  end
+
+  create_table "adoption_applications", force: :cascade do |t|
+    t.text "adoption_reason", null: false
+    t.string "city", null: false
+    t.datetime "created_at", null: false
+    t.string "email", null: false
+    t.string "first_name", null: false
+    t.string "has_children", null: false
+    t.string "has_other_pets", null: false
+    t.string "has_yard", null: false
+    t.string "housing_type", null: false
+    t.string "last_name", null: false
+    t.string "owns_or_rents", null: false
+    t.text "pet_experience", null: false
+    t.bigint "pet_id", null: false
+    t.string "phone", null: false
+    t.text "references"
+    t.string "state", null: false
+    t.string "status", default: "pending"
+    t.string "street_address", null: false
+    t.datetime "submitted_at"
+    t.datetime "updated_at", null: false
+    t.string "zip_code", null: false
+    t.index ["pet_id"], name: "index_adoption_applications_on_pet_id"
   end
 
   create_table "board_members", force: :cascade do |t|
@@ -133,4 +158,5 @@ ActiveRecord::Schema[8.1].define(version: 2026_06_05_151429) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "adoption_applications", "pets"
 end
