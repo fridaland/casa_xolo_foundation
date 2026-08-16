@@ -800,7 +800,7 @@ dt:last-of-type + dd,
 
 .pet-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
 }
 
@@ -902,6 +902,14 @@ dt:last-of-type + dd,
   padding: 0.25rem 0.75rem;
   border-radius: 99px;
   white-space: nowrap;
+}
+
+.site-badge--urgent {
+  background-color: #B91C1C;
+}
+
+.site-badge--pending {
+  background-color: var(--color-muted);
 }
 
 .site-btn {
