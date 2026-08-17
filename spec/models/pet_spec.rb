@@ -18,7 +18,7 @@ RSpec.describe Pet, type: :model do
     }
     it {
       should define_enum_for(:status)
-        .with_values([:available, :adopted, :urgent])
+        .with_values([:available, :adopted, :urgent, :pending])
         .validating(allowing_nil: true)
     }
     it {

@@ -120,6 +120,7 @@ class PetDashboard < Administrate::BaseDashboard
     available: ->(resources) { resources.where(status: "available") },
     adopted: ->(resources) { resources.where(status: "adopted") },
     urgent: ->(resources) { resources.where(status: "urgent") },
+    pending: ->(resources) { resources.where(status: "pending") },
     cat: ->(resources) { resources.where(species: "cat") },
     dog: ->(resources) { resources.where(species: "dog") }
   }.freeze
