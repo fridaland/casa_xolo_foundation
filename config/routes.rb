@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     resources :users
     resources :volunteers
     resources :volunteer_applications
+    resources :adoption_applications, only: [:index, :show]
 
     root to: "board_members#index"
   end
@@ -27,7 +28,11 @@ Rails.application.routes.draw do
   # Can be used by load balancers and uptime monitors to verify that the app is live.
   get "up" => "rails/health#show", :as => :rails_health_check
 
-  resources :pets, only: [:index, :show]
+  resources :pets, only: [:index, :show] do
+    resources :adoption_applications, only: [:new, :create] do
+      get :thank_you, on: :collection
+    end
+  end
 
   get "/" => "home#index", :as => :home
   get "/volunteer" => "pages#volunteer", :as => :volunteer

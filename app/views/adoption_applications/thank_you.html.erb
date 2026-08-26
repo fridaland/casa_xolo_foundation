@@ -1,0 +1,28 @@
+<% content_for :body_class, "body--dark" %>
+<% content_for :title, "Application Received" %>
+
+<section class="adoption-form-section">
+  <div class="adoption-form-section__inner">
+    <div class="volunteer-thankyou-card">
+      <div class="volunteer-thankyou__icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"/>
+          <path d="M8 12l3 3 5-5"/>
+        </svg>
+      </div>
+
+      <h1 class="volunteer-thankyou__heading">Application Received!</h1>
+      <p class="volunteer-thankyou__text">
+        Thank you for applying to adopt <%= @pet.name %>. We've received your application
+        and will review it shortly. We'll be in touch within a few days.
+        In the meantime, feel free to reach out at
+        <a href="mailto:contact@casaxolofoundation.org">contact@casaxolofoundation.org</a>.
+      </p>
+
+      <div class="volunteer-thankyou__actions">
+        <%= link_to "Back to #{@pet.name}'s Profile", pet_path(@pet), class: "site-btn" %>
+        <%= link_to "View All Pets", pets_path, class: "site-btn site-btn--outline-light" %>
+      </div>
+    </div>
+  </div>
+</section>

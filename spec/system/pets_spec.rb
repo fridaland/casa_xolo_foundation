@@ -67,7 +67,7 @@ RSpec.describe "Pet show page", type: :system do
 
       visit pet_path(pet)
 
-      expect(page).to have_content("adopt@casaxolo.org")
+      expect(page).to have_content("contact@casaxolofoundation.org")
     end
 
     it "displays a photo when the pet has one attached" do

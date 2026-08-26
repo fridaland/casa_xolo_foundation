@@ -1,0 +1,150 @@
+<% content_for :body_class, "body--dark" %>
+<% content_for :title, "Adoption Application for #{@pet.name}" %>
+
+<section class="adoption-form-section">
+  <div class="adoption-form-section__inner">
+    <div class="adoption-form-section__back">
+      <%= link_to pet_path(@pet), class: "pet-show__back-link" do %>
+        Back to <%= @pet.name %>'s Profile
+      <% end %>
+    </div>
+
+    <div class="adoption-form-card">
+      <h1 class="adoption-form__title">Adoption Application</h1>
+      <p class="adoption-form__subtitle">for <%= @pet.name %></p>
+
+      <% if @adoption_application.errors.any? %>
+        <div class="volunteer-form__errors">
+          <p class="volunteer-form__errors-heading">Please fix the following errors:</p>
+          <ul class="volunteer-form__errors-list">
+            <% @adoption_application.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <%= form_with model: [@pet, @adoption_application] do |f| %>
+
+        <h2 class="adoption-form__section-heading">Personal Information</h2>
+
+        <div class="volunteer-form__row">
+          <div class="volunteer-form__field">
+            <%= f.label :first_name, "First Name *", class: "volunteer-form__label" %>
+            <%= f.text_field :first_name, class: "volunteer-form__input", autocomplete: "given-name" %>
+          </div>
+          <div class="volunteer-form__field">
+            <%= f.label :last_name, "Last Name *", class: "volunteer-form__label" %>
+            <%= f.text_field :last_name, class: "volunteer-form__input", autocomplete: "family-name" %>
+          </div>
+        </div>
+
+        <div class="volunteer-form__row">
+          <div class="volunteer-form__field">
+            <%= f.label :email, "Email *", class: "volunteer-form__label" %>
+            <%= f.email_field :email, class: "volunteer-form__input", autocomplete: "email" %>
+          </div>
+          <div class="volunteer-form__field">
+            <%= f.label :phone, "Phone Number *", class: "volunteer-form__label" %>
+            <%= f.telephone_field :phone, class: "volunteer-form__input", autocomplete: "tel" %>
+          </div>
+        </div>
+
+        <h2 class="adoption-form__section-heading">Address</h2>
+
+        <div class="volunteer-form__field">
+          <%= f.label :street_address, "Street Address *", class: "volunteer-form__label" %>
+          <%= f.text_field :street_address, class: "volunteer-form__input", autocomplete: "street-address" %>
+        </div>
+
+        <div class="adoption-form__row--3">
+          <div class="volunteer-form__field">
+            <%= f.label :city, "City *", class: "volunteer-form__label" %>
+            <%= f.text_field :city, class: "volunteer-form__input", autocomplete: "address-level2" %>
+          </div>
+          <div class="volunteer-form__field">
+            <%= f.label :state, "State *", class: "volunteer-form__label" %>
+            <%= f.text_field :state, class: "volunteer-form__input", autocomplete: "address-level1" %>
+          </div>
+          <div class="volunteer-form__field">
+            <%= f.label :zip_code, "Zip Code *", class: "volunteer-form__label" %>
+            <%= f.text_field :zip_code, class: "volunteer-form__input", autocomplete: "postal-code" %>
+          </div>
+        </div>
+
+        <h2 class="adoption-form__section-heading">Housing Information</h2>
+
+        <div class="volunteer-form__field">
+          <%= f.label :housing_type, "Type of Housing *", class: "volunteer-form__label" %>
+          <%= f.select :housing_type,
+            options_for_select(AdoptionApplication::HOUSING_TYPES, @adoption_application.housing_type),
+            {include_blank: "Select one"},
+            class: "volunteer-form__input volunteer-form__select" %>
+        </div>
+
+        <div class="volunteer-form__field">
+          <%= f.label :owns_or_rents, "Do you own or rent? *", class: "volunteer-form__label" %>
+          <%= f.select :owns_or_rents,
+            options_for_select(AdoptionApplication::OWNERSHIP_OPTIONS, @adoption_application.owns_or_rents),
+            {include_blank: "Select one"},
+            class: "volunteer-form__input volunteer-form__select" %>
+        </div>
+
+        <div class="volunteer-form__field">
+          <%= f.label :has_yard, "Do you have a yard? *", class: "volunteer-form__label" %>
+          <%= f.select :has_yard,
+            options_for_select(AdoptionApplication::YARD_OPTIONS, @adoption_application.has_yard),
+            {include_blank: "Select one"},
+            class: "volunteer-form__input volunteer-form__select" %>
+        </div>
+
+        <h2 class="adoption-form__section-heading">Household Information</h2>
+
+        <div class="volunteer-form__field">
+          <%= f.label :has_other_pets, "Do you have other pets? *", class: "volunteer-form__label" %>
+          <%= f.select :has_other_pets,
+            options_for_select(AdoptionApplication::YES_NO_OPTIONS, @adoption_application.has_other_pets),
+            {include_blank: "Select one"},
+            class: "volunteer-form__input volunteer-form__select" %>
+        </div>
+
+        <div class="volunteer-form__field">
+          <%= f.label :has_children, "Do you have children? *", class: "volunteer-form__label" %>
+          <%= f.select :has_children,
+            options_for_select(AdoptionApplication::YES_NO_OPTIONS, @adoption_application.has_children),
+            {include_blank: "Select one"},
+            class: "volunteer-form__input volunteer-form__select" %>
+        </div>
+
+        <h2 class="adoption-form__section-heading">Experience &amp; Motivation</h2>
+
+        <div class="volunteer-form__field">
+          <%= f.label :pet_experience, "Previous pet ownership experience *", class: "volunteer-form__label" %>
+          <%= f.text_area :pet_experience,
+            class: "volunteer-form__input volunteer-form__textarea",
+            placeholder: "Tell us about your experience with pets" %>
+        </div>
+
+        <div class="volunteer-form__field">
+          <%= f.label :adoption_reason, "Why do you want to adopt #{@pet.name}? *", class: "volunteer-form__label" %>
+          <%= f.text_area :adoption_reason,
+            class: "volunteer-form__input volunteer-form__textarea",
+            placeholder: "Share your motivations and what makes you a good match" %>
+        </div>
+
+        <div class="volunteer-form__field">
+          <%= f.label :references, "References", class: "volunteer-form__label" %>
+          <%= f.text_area :references,
+            class: "volunteer-form__input volunteer-form__textarea",
+            placeholder: "Veterinarian name, contact or personal references" %>
+        </div>
+
+        <div class="volunteer-form__actions">
+          <%= link_to "Cancel", pet_path(@pet), class: "site-btn site-btn--secondary" %>
+          <%= f.submit "Submit Application", class: "site-btn" %>
+        </div>
+
+      <% end %>
+    </div>
+  </div>
+</section>
