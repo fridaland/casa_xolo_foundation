@@ -1,0 +1,37 @@
+<section class="site-hero">
+  <div class="site-hero__inner">
+    <h1 class="site-hero__title">Adopt a Pet</h1>
+    <p class="site-hero__body">Every animal deserves a loving home. Meet our friends looking for their forever families.</p>
+  </div>
+</section>
+
+<section class="site-section site-section--dark">
+  <div class="site-section__inner">
+    <div class="pet-grid">
+      <% @pets.each do |pet| %>
+        <div class="pet-card">
+          <% if pet.photos.attached? %>
+            <%= image_tag pet.photos.first, alt: pet.name, class: "pet-card__photo" %>
+          <% else %>
+            <div class="pet-card__photo pet-card__photo--placeholder"></div>
+          <% end %>
+          <div class="pet-card__body">
+            <div class="pet-card__name-row">
+              <span class="pet-card__name"><%= pet.name %></span>
+            </div>
+            <% if pet.breed.present? %>
+              <p class="pet-card__detail"><%= pet.breed %></p>
+            <% end %>
+            <% if pet.age.present? %>
+              <p class="pet-card__detail"><%= pluralize(pet.age, "year") %></p>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="site-section__cta">
+      <a href="#" class="site-btn">Start your adoption application</a>
+    </div>
+  </div>
+</section>
