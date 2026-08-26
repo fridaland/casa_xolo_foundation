@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     resources :users
     resources :volunteers
     resources :volunteer_applications
+    resources :adoption_applications, only: [:index, :show]
 
     root to: "board_members#index"
   end
