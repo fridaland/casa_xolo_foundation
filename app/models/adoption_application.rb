@@ -24,4 +24,11 @@ class AdoptionApplication < ApplicationRecord
   validates :has_children, inclusion: {in: YES_NO_OPTIONS}, allow_blank: true
 
   before_create { self.submitted_at = Time.current }
+
+  scope :by_status_priority, -> {
+    order(
+      Arel.sql("CASE status WHEN 'pending' THEN 0 WHEN 'reviewing' THEN 1 WHEN 'approved' THEN 2 ELSE 3 END"),
+      submitted_at: :desc
+    )
+  }
 end
