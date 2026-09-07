@@ -16,5 +16,10 @@ FactoryBot.define do
     has_children { AdoptionApplication::YES_NO_OPTIONS.last }
     pet_experience { Faker::Lorem.paragraph(sentence_count: 2) }
     adoption_reason { Faker::Lorem.paragraph(sentence_count: 2) }
+    application_type { "adoption" }
+
+    trait :foster do
+      application_type { "foster" }
+    end
   end
 end

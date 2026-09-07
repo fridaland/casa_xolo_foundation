@@ -6,6 +6,8 @@ class AdoptionApplication < ApplicationRecord
   YARD_OPTIONS = ["Yes — fenced", "Yes — unfenced", "No"].freeze
   YES_NO_OPTIONS = ["Yes", "No"].freeze
 
+  APPLICATION_TYPES = ["adoption", "foster"].freeze
+
   PHONE_REGEXP = /\A(\+?1[\s.-]?)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}\z/
   EMAIL_REGEXP = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
@@ -22,6 +24,7 @@ class AdoptionApplication < ApplicationRecord
   validates :has_yard, inclusion: {in: YARD_OPTIONS}, allow_blank: true
   validates :has_other_pets, inclusion: {in: YES_NO_OPTIONS}, allow_blank: true
   validates :has_children, inclusion: {in: YES_NO_OPTIONS}, allow_blank: true
+  validates :application_type, inclusion: {in: APPLICATION_TYPES}
 
   before_create { self.submitted_at = Time.current }
 
