@@ -22,6 +22,9 @@
             <% end %>
           </div>
           <span class="site-badge pet-show__status-badge"><%= @pet.status&.capitalize %></span>
+          <% if pet.fosterable? %>
+            <span class="site-badge site-badge--available">Fosterable</span>
+          <% end %>
         </div>
 
         <hr class="pet-show__divider">
@@ -48,6 +51,11 @@
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
             </svg>
             Apply to Adopt <%= @pet.name %>
+          <% end %>
+          <% if @pet.fosterable? %>
+            <%= link_to new_pet_foster_application_path(@pet), class: "mt-2 site-btn site-btn--secondary pet-show__adopt-btn" do %>
+              Apply to Foster <%= @pet.name %>
+            <% end %>
           <% end %>
           <p class="pet-show__contact">Contact us at <%= mail_to "contact@casaxolofoundation.org" %></p>
         </div>

@@ -126,5 +126,13 @@ RSpec.describe "Pets index page", type: :system do
 
       expect(page).to have_current_path(pets_path)
     end
+
+    it "'Become a Foster' nav link goes to the pets page" do
+      visit "/"
+
+      within("nav.site-nav") { click_link "Become a Foster" }
+
+      expect(page).to have_current_path(pets_path)
+    end
   end
 end
