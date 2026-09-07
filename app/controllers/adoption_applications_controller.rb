@@ -26,12 +26,24 @@ class AdoptionApplicationsController < ApplicationController
   end
 
   def adoption_application_params
-    params.require(:adoption_application).permit(
-      :first_name, :last_name, :email, :phone,
-      :street_address, :city, :state, :zip_code,
-      :housing_type, :owns_or_rents, :has_yard,
-      :has_other_pets, :has_children,
-      :pet_experience, :adoption_reason, :references
-    )
+    params.require(:adoption_application)
+      .permit(
+        :first_name,
+        :last_name,
+        :email,
+        :phone,
+        :street_address,
+        :city,
+        :state,
+        :zip_code,
+        :housing_type,
+        :owns_or_rents,
+        :has_yard,
+        :has_other_pets,
+        :has_children,
+        :pet_experience,
+        :adoption_reason,
+        :references
+      )
   end
 end

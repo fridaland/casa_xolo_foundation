@@ -40,10 +40,12 @@
           <div class="pet-card__body">
             <div class="pet-card__name-row">
               <span class="pet-card__name"><%= pet.name %></span>
-              <span class="site-badge site-badge--<%= pet.status %>"><%= pet.status&.capitalize %></span>
-              <% if pet.fosterable? %>
-                <span class="site-badge site-badge--available">Fosterable</span>
-              <% end %>
+              <div class="pet-card__badge-stack">
+                <span class="site-badge site-badge--<%= pet.status %>"><%= pet.status&.capitalize %></span>
+                <% if pet.fosterable? %>
+                  <span class="site-badge site-badge--fosterable">Fosterable</span>
+                <% end %>
+              </div>
             </div>
             <% if pet.breed.present? %>
               <p class="pet-card__detail"><%= pet.breed %></p>

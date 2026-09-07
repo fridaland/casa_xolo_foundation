@@ -62,6 +62,16 @@ RSpec.describe "Pet show page", type: :system do
       expect(page).to have_link("Apply to Adopt Luna")
     end
 
+    it "stacks the fosterable badge below the status badge in the header" do
+      pet = create_pet_luna
+      pet.update!(fosterable: true)
+
+      visit pet_path(pet)
+
+      expect(page).to have_css(".pet-show__badge-stack .site-badge--fosterable", text: "Fosterable")
+      expect(page).to have_css(".pet-show__badge-stack .pet-show__status-badge")
+    end
+
     it "displays the apply to foster button when the pet is fosterable" do
       pet = create_pet_luna
       pet.update!(fosterable: true)

@@ -1,3 +1,5 @@
+<% content_for :body_class, "body--dark" %>
+
 <section class="pet-show">
   <div class="pet-show__inner">
     <div class="pet-show__back">
@@ -21,10 +23,12 @@
               <p class="pet-show__breed"><%= @pet.breed %></p>
             <% end %>
           </div>
-          <span class="site-badge pet-show__status-badge"><%= @pet.status&.capitalize %></span>
-          <% if pet.fosterable? %>
-            <span class="site-badge site-badge--available">Fosterable</span>
-          <% end %>
+          <div class="pet-show__badge-stack">
+            <span class="site-badge pet-show__status-badge"><%= @pet.status&.capitalize %></span>
+            <% if @pet.fosterable? %>
+              <span class="site-badge site-badge--fosterable">Fosterable</span>
+            <% end %>
+          </div>
         </div>
 
         <hr class="pet-show__divider">
@@ -53,7 +57,7 @@
             Apply to Adopt <%= @pet.name %>
           <% end %>
           <% if @pet.fosterable? %>
-            <%= link_to new_pet_foster_application_path(@pet), class: "mt-2 site-btn site-btn--secondary pet-show__adopt-btn" do %>
+            <%= link_to new_pet_foster_application_path(@pet), class: "site-btn site-btn--secondary pet-show__adopt-btn" do %>
               Apply to Foster <%= @pet.name %>
             <% end %>
           <% end %>

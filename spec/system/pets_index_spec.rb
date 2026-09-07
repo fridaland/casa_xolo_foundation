@@ -100,6 +100,33 @@ RSpec.describe "Pets index page", type: :system do
     end
   end
 
+  describe "fosterable badge" do
+    it "shows the fosterable badge for fosterable pets" do
+      create(:pet, :fosterable, name: "Luna", status: :available)
+
+      visit pets_path
+
+      expect(page).to have_css(".pet-card__badge-stack .site-badge--fosterable", text: "Fosterable")
+    end
+
+    it "does not show the fosterable badge for non-fosterable pets" do
+      create(:pet, name: "Simba", status: :available)
+
+      visit pets_path
+
+      expect(page).not_to have_css(".site-badge", text: "Fosterable")
+    end
+
+    it "stacks the fosterable badge below the status badge" do
+      create(:pet, :fosterable, name: "Luna", status: :available)
+
+      visit pets_path
+
+      expect(page).to have_css(".pet-card__badge-stack .site-badge", text: "Available")
+      expect(page).to have_css(".pet-card__badge-stack .site-badge--fosterable", text: "Fosterable")
+    end
+  end
+
   describe "adoption process section" do
     it "shows the adoption process steps" do
       visit pets_path
