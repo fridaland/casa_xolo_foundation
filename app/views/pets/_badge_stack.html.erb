@@ -1,0 +1,6 @@
+<div class="<%= wrapper_class %>">
+  <span class="site-badge <%= status_badge_class %>"><%= pet.status&.capitalize %></span>
+  <% if pet.fosterable? %>
+    <span class="site-badge site-badge--fosterable">Fosterable</span>
+  <% end %>
+</div>

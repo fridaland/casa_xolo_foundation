@@ -23,12 +23,10 @@
               <p class="pet-show__breed"><%= @pet.breed %></p>
             <% end %>
           </div>
-          <div class="pet-show__badge-stack">
-            <span class="site-badge pet-show__status-badge"><%= @pet.status&.capitalize %></span>
-            <% if @pet.fosterable? %>
-              <span class="site-badge site-badge--fosterable">Fosterable</span>
-            <% end %>
-          </div>
+          <%= render "pets/badge_stack",
+                pet: @pet,
+                wrapper_class: "pet-show__badge-stack",
+                status_badge_class: "pet-show__status-badge" %>
         </div>
 
         <hr class="pet-show__divider">
@@ -68,18 +66,4 @@
   </div>
 </section>
 
-<section class="pet-show__adoption-section">
-  <div class="pet-show__inner">
-    <div class="pet-show__adoption-card">
-      <h2 class="pet-show__adoption-title">Adoption Information</h2>
-      <p class="pet-show__adoption-subtitle">All of our animals are:</p>
-
-      <ul class="pet-show__adoption-list">
-        <li>Veterinary examined</li>
-        <li>Up-to-date on vaccinations</li>
-        <li>Spayed or neutered</li>
-        <li>Microchipped for identification</li>
-      </ul>
-    </div>
-  </div>
-</section>
+<%= render "pets/adoption_info" %>
