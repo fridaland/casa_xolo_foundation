@@ -17,14 +17,14 @@ class AdoptionApplication < ApplicationRecord
     :has_other_pets, :has_children,
     :pet_experience, :adoption_reason,
     presence: true
-  validates :email, format: {with: EMAIL_REGEXP}
-  validates :phone, format: {with: PHONE_REGEXP}, allow_blank: true
-  validates :housing_type, inclusion: {in: HOUSING_TYPES}, allow_blank: true
-  validates :owns_or_rents, inclusion: {in: OWNERSHIP_OPTIONS}, allow_blank: true
-  validates :has_yard, inclusion: {in: YARD_OPTIONS}, allow_blank: true
-  validates :has_other_pets, inclusion: {in: YES_NO_OPTIONS}, allow_blank: true
-  validates :has_children, inclusion: {in: YES_NO_OPTIONS}, allow_blank: true
-  validates :application_type, inclusion: {in: APPLICATION_TYPES}
+  validates :email, format: { with: EMAIL_REGEXP }
+  validates :phone, format: { with: PHONE_REGEXP }, allow_blank: true
+  validates :housing_type, inclusion: { in: HOUSING_TYPES }, allow_blank: true
+  validates :owns_or_rents, inclusion: { in: OWNERSHIP_OPTIONS }, allow_blank: true
+  validates :has_yard, inclusion: { in: YARD_OPTIONS }, allow_blank: true
+  validates :has_other_pets, inclusion: { in: YES_NO_OPTIONS }, allow_blank: true
+  validates :has_children, inclusion: { in: YES_NO_OPTIONS }, allow_blank: true
+  validates :application_type, inclusion: { in: APPLICATION_TYPES }
 
   before_create { self.submitted_at = Time.current }
 

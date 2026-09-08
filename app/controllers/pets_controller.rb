@@ -13,7 +13,7 @@ class PetsController < ApplicationController
   private
 
   def default_filters
-    {status: [:available, :urgent, :pending]}
+    { status: [:available, :urgent, :pending] }
   end
 
   def filter_params

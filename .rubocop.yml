@@ -1,8 +1,40 @@
-# Omakase Ruby styling for Rails
-inherit_gem: { rubocop-rails-omakase: rubocop.yml }
+plugins:
+  - rubocop-rails
 
-# Overwrite or add rules to create your own house style
-#
+AllCops:
+  NewCops: enable
+  SuggestExtensions: false
+
 # Use `[a, [b, c]]` not `[ a, [ b, c ] ]`
 Layout/SpaceInsideArrayLiteralBrackets:
+  Enabled: false
+
+# When a method call spans multiple lines, each argument must be on its own line.
+# Ensures .permit() params are consistently formatted one-per-line.
+Layout/MultilineMethodArgumentLineBreaks:
+  Enabled: true
+
+# Require a trailing comma after the last argument in multiline calls.
+# Keeps diffs clean when adding/removing params.
+Style/TrailingCommaInArguments:
+  EnforcedStyleForMultiline: consistent_comma
+
+# Alphabetize gems within each group in the Gemfile.
+Bundler/OrderedGems:
+  Enabled: true
+
+# We don't require documentation comments on every class.
+Style/Documentation:
+  Enabled: false
+
+# Rails sets frozen string literal via config, not magic comments.
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+# Permit methods with many params will naturally exceed 10 lines.
+Metrics/MethodLength:
+  Max: 20
+
+# We use the require().permit() pattern rather than the newer params.expect() API.
+Rails/StrongParametersExpect:
   Enabled: false

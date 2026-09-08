@@ -42,7 +42,7 @@ class PetDashboard < Administrate::BaseDashboard
     photos: Field::ActiveStorage.with_options(
       show_preview_size: [150, 150],
       destroy_url: proc do |namespace, resource, attachment|
-        [:photo_admin_pet, {photo_id: attachment.id}]
+        [:photo_admin_pet, { photo_id: attachment.id }]
       end
     )
   }.freeze

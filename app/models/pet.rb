@@ -20,8 +20,8 @@ class Pet < ApplicationRecord
 
   scope :fosterable, -> { where(fosterable: true) }
 
-  enum :size, ["small", "medium", "large"], validate: {allow_nil: true}
-  enum :species, ["dog", "cat", "other"], validate: {allow_nil: true}
-  enum :status, ["available", "adopted", "urgent", "pending"], validate: {allow_nil: true}
+  enum :size, ["small", "medium", "large"], validate: { allow_nil: true }
+  enum :species, ["dog", "cat", "other"], validate: { allow_nil: true }
+  enum :status, ["available", "adopted", "urgent", "pending"], validate: { allow_nil: true }
   enum :sex, ["female", "male"], validate: true
 end
