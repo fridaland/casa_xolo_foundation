@@ -1,0 +1,22 @@
+<%= link_to pet_path(pet), class: "pet-card" do %>
+  <% if pet.photos.attached? %>
+    <%= image_tag pet.photos.first, alt: pet.name, class: "pet-card__photo" %>
+  <% else %>
+    <div class="pet-card__photo pet-card__photo--placeholder"></div>
+  <% end %>
+  <div class="pet-card__body">
+    <div class="pet-card__name-row">
+      <span class="pet-card__name"><%= pet.name %></span>
+      <%= render "pets/badge_stack",
+            pet: pet,
+            wrapper_class: "pet-card__badge-stack",
+            status_badge_class: "site-badge--#{pet.status}" %>
+    </div>
+    <% if pet.breed.present? %>
+      <p class="pet-card__detail"><%= pet.breed %></p>
+    <% end %>
+    <% if pet.age.present? %>
+      <p class="pet-card__detail"><%= pluralize(pet.age, "year") %></p>
+    <% end %>
+  </div>
+<% end %>

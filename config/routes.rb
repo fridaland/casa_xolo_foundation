@@ -32,6 +32,9 @@ Rails.application.routes.draw do
     resources :adoption_applications, only: [:new, :create] do
       get :thank_you, on: :collection
     end
+    resources :foster_applications, only: [:new, :create] do
+      get :thank_you, on: :collection
+    end
   end
 
   get "/" => "home#index", :as => :home

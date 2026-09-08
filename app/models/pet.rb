@@ -18,6 +18,8 @@ class Pet < ApplicationRecord
   validates :color, presence: true
   validates :description, presence: true
 
+  scope :fosterable, -> { where(fosterable: true) }
+
   enum :size, ["small", "medium", "large"], validate: {allow_nil: true}
   enum :species, ["dog", "cat", "other"], validate: {allow_nil: true}
   enum :status, ["available", "adopted", "urgent", "pending"], validate: {allow_nil: true}

@@ -31,25 +31,7 @@
 
     <div class="pet-grid">
       <% @pets.each do |pet| %>
-        <%= link_to pet_path(pet), class: "pet-card" do %>
-          <% if pet.photos.attached? %>
-            <%= image_tag pet.photos.first, alt: pet.name, class: "pet-card__photo" %>
-          <% else %>
-            <div class="pet-card__photo pet-card__photo--placeholder"></div>
-          <% end %>
-          <div class="pet-card__body">
-            <div class="pet-card__name-row">
-              <span class="pet-card__name"><%= pet.name %></span>
-              <span class="site-badge site-badge--<%= pet.status %>"><%= pet.status&.capitalize %></span>
-            </div>
-            <% if pet.breed.present? %>
-              <p class="pet-card__detail"><%= pet.breed %></p>
-            <% end %>
-            <% if pet.age.present? %>
-              <p class="pet-card__detail"><%= pluralize(pet.age, "year") %></p>
-            <% end %>
-          </div>
-        <% end %>
+        <%= render "pets/pet_card", pet: pet %>
       <% end %>
     </div>
   </div>

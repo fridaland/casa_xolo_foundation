@@ -1,3 +1,5 @@
+<% content_for :body_class, "body--dark" %>
+
 <section class="pet-show">
   <div class="pet-show__inner">
     <div class="pet-show__back">
@@ -21,7 +23,10 @@
               <p class="pet-show__breed"><%= @pet.breed %></p>
             <% end %>
           </div>
-          <span class="site-badge pet-show__status-badge"><%= @pet.status&.capitalize %></span>
+          <%= render "pets/badge_stack",
+                pet: @pet,
+                wrapper_class: "pet-show__badge-stack",
+                status_badge_class: "pet-show__status-badge" %>
         </div>
 
         <hr class="pet-show__divider">
@@ -49,6 +54,11 @@
             </svg>
             Apply to Adopt <%= @pet.name %>
           <% end %>
+          <% if @pet.fosterable? %>
+            <%= link_to new_pet_foster_application_path(@pet), class: "site-btn site-btn--secondary pet-show__adopt-btn" do %>
+              Apply to Foster <%= @pet.name %>
+            <% end %>
+          <% end %>
           <p class="pet-show__contact">Contact us at <%= mail_to "contact@casaxolofoundation.org" %></p>
         </div>
       </div>
@@ -56,18 +66,4 @@
   </div>
 </section>
 
-<section class="pet-show__adoption-section">
-  <div class="pet-show__inner">
-    <div class="pet-show__adoption-card">
-      <h2 class="pet-show__adoption-title">Adoption Information</h2>
-      <p class="pet-show__adoption-subtitle">All of our animals are:</p>
-
-      <ul class="pet-show__adoption-list">
-        <li>Veterinary examined</li>
-        <li>Up-to-date on vaccinations</li>
-        <li>Spayed or neutered</li>
-        <li>Microchipped for identification</li>
-      </ul>
-    </div>
-  </div>
-</section>
+<%= render "pets/adoption_info" %>

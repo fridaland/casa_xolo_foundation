@@ -46,6 +46,23 @@ RSpec.describe AdoptionApplication, type: :model do
     }
   end
 
+  describe "application_type" do
+    it "defaults to 'adoption'" do
+      app = build(:adoption_application)
+      expect(app.application_type).to eq("adoption")
+    end
+
+    it {
+      should validate_inclusion_of(:application_type)
+        .in_array(AdoptionApplication::APPLICATION_TYPES)
+    }
+
+    it "can be set to 'foster'" do
+      app = build(:adoption_application, :foster)
+      expect(app.application_type).to eq("foster")
+    end
+  end
+
   describe "callbacks" do
     it "sets submitted_at on create" do
       app = create(:adoption_application)

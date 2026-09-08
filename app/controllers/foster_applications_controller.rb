@@ -1,16 +1,17 @@
-class AdoptionApplicationsController < ApplicationController
+class FosterApplicationsController < ApplicationController
   skip_before_action :authenticate_user!
   before_action :set_pet
 
   def new
-    @adoption_application = AdoptionApplication.new
+    @application = AdoptionApplication.new(application_type: "foster")
   end
 
   def create
-    @adoption_application = AdoptionApplication.new(adoption_application_params)
-    @adoption_application.pet = @pet
-    if @adoption_application.save
-      redirect_to thank_you_pet_adoption_applications_path(@pet)
+    @application = AdoptionApplication.new(foster_application_params)
+    @application.pet = @pet
+    @application.application_type = "foster"
+    if @application.save
+      redirect_to thank_you_pet_foster_applications_path(@pet)
     else
       render :new, status: :unprocessable_entity
     end
@@ -25,7 +26,7 @@ class AdoptionApplicationsController < ApplicationController
     @pet = Pet.find(params[:pet_id])
   end
 
-  def adoption_application_params
+  def foster_application_params
     params.require(:adoption_application)
       .permit(
         :first_name,

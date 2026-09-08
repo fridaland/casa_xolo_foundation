@@ -16,6 +16,10 @@ FactoryBot.define do
       status { :urgent }
     end
 
+    trait :fosterable do
+      fosterable { true }
+    end
+
     trait :with_photo do
       after(:create) do |pet|
         pet.photos.attach(
