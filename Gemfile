@@ -54,6 +54,8 @@ group :development, :test do
 
   # Static analysis for security vulnerabilities [https://brakemanscanner.org/]
   gem "brakeman", require: false
+  gem "rubocop"
+  gem "rubocop-rails"
 
   gem "faker"
 end
@@ -70,8 +72,8 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 
-  gem "rspec-rails"
   gem "factory_bot_rails"
+  gem "rspec-rails"
 
   gem "shoulda-matchers"
 end

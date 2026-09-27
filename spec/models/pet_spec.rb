@@ -30,22 +30,22 @@ RSpec.describe Pet, type: :model do
 
     it {
       should define_enum_for(:size)
-        .with_values([:small, :medium, :large])
+        .with_values(%i[small medium large])
         .validating(allowing_nil: true)
     }
     it {
       should define_enum_for(:species)
-        .with_values([:dog, :cat, :other])
+        .with_values(%i[dog cat other])
         .validating(allowing_nil: true)
     }
     it {
       should define_enum_for(:status)
-        .with_values([:available, :adopted, :urgent, :pending])
+        .with_values(%i[available adopted urgent pending])
         .validating(allowing_nil: true)
     }
     it {
       should define_enum_for(:sex)
-        .with_values([:female, :male])
+        .with_values(%i[female male])
         .validating
     }
   end

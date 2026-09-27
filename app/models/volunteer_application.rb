@@ -14,9 +14,9 @@ class VolunteerApplication < ApplicationRecord
   EMAIL_REGEXP = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
   validates :name, :email, :phone, :position, :message, presence: true
-  validates :email, format: {with: EMAIL_REGEXP}
-  validates :phone, format: {with: PHONE_REGEXP}, allow_blank: true
-  validates :position, inclusion: {in: POSITIONS}, allow_blank: true
+  validates :email, format: { with: EMAIL_REGEXP }
+  validates :phone, format: { with: PHONE_REGEXP }, allow_blank: true
+  validates :position, inclusion: { in: POSITIONS }, allow_blank: true
 
   before_create { self.submitted_at = Time.current }
 end

@@ -8,12 +8,12 @@ class VolunteerApplicationDashboard < Administrate::BaseDashboard
     phone: Field::String,
     position: Field::Select.with_options(
       collection: VolunteerApplication::POSITIONS,
-      include_blank: true
+      include_blank: true,
     ),
     message: Field::Text,
     status: Field::Select.with_options(
       collection: VolunteerApplication::STATUSES,
-      include_blank: false
+      include_blank: false,
     ),
     resume: Field::ActiveStorage,
     submitted_at: Field::DateTime,

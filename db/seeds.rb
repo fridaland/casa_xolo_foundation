@@ -15,9 +15,9 @@ end
 def attach_remote_image(pet, url, filename)
   return if pet.photos.attached?
 
-  file = URI.open(url)  # rubocop:disable Security/Open
+  file = URI.open(url) # rubocop:disable Security/Open
   pet.photos.attach(io: file, filename: filename, content_type: "image/jpeg")
-rescue => e
+rescue StandardError => e
   Rails.logger.warn("[seeds] Could not attach photo for #{pet.name}: #{e.message}")
 end
 

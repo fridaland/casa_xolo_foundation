@@ -46,7 +46,7 @@ module Admin
     def destroy_photo
       photo = requested_resource.photos.find(params[:photo_id])
       photo.purge
-      redirect_back(fallback_location: requested_resource)
+      redirect_back_or_to(requested_resource)
     end
   end
 end

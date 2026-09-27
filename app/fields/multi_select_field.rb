@@ -10,7 +10,7 @@ class MultiSelectField < Administrate::Field::Base
   end
 
   def self.permitted_attribute(attr, _options = nil)
-    {attr => []}
+    { attr => [] }
   end
 
   def self.searchable?

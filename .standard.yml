@@ -1,0 +1,25 @@
+extend_config:
+  - .rubocop.yml
+
+# Standard locks these cops and ignores EnforcedStyle overrides, so we use
+# `ignore:` to hand them back to RuboCop which is configured in .rubocop.yml.
+ignore:
+  - "**/*":
+    - Layout/SpaceInsideHashLiteralBraces       # RuboCop enforces `space` style
+    - Rails/StrongParametersExpect              # disabled project-wide in RuboCop
+    - Style/SingleLineMethods                   # conflicts with RuboCop Style/EmptyMethod
+    - Style/EmptyMethod                         # RuboCop enforces compact (single-line) style
+    - Layout/ArgumentAlignment                  # RuboCop enforces with_first_argument style
+    - Layout/MultilineMethodCallIndentation     # RuboCop owns multiline call indentation
+    - Style/TrailingCommaInArguments            # RuboCop enforces consistent_comma
+    - Style/RescueStandardError                 # RuboCop requires specifying the error class
+  - "db/migrate/**/*":
+    - Rails/NotNullColumn
+    - Rails/ThreeStateBooleanColumn
+    - Rails/BulkChangeTable
+  - "db/seeds.rb":
+    - Rails/Output
+
+# Standard enforces single quotes; we prefer double quotes.
+Style/StringLiterals:
+  EnforcedStyle: double_quotes

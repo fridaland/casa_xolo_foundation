@@ -57,9 +57,10 @@ RSpec.describe "Admin::Pets", type: :system do
     fill_in "Color", with: "Black"
     fill_in "Description", with: "A lovely black cat looking for a home."
 
-    attach_file "Photos", [
-      Rails.root.join("spec/fixtures/files/cat_salem.jpg")
-    ]
+    attach_file "Photos",
+                [
+                  Rails.root.join("spec/fixtures/files/cat_salem.jpg")
+                ]
 
     click_on "Create Pet"
 

@@ -14,11 +14,11 @@ class PetDashboard < Administrate::BaseDashboard
     name: Field::String,
     species: Field::Select.with_options(
       collection: Pet.species.keys,
-      include_blank: true
+      include_blank: true,
     ),
     sex: Field::Select.with_options(
       collection: Pet.sexes.keys,
-      include_blank: true
+      include_blank: true,
     ),
     color: Field::String,
     description: Field::Text,
@@ -26,24 +26,24 @@ class PetDashboard < Administrate::BaseDashboard
     age: Field::Number,
     size: Field::Select.with_options(
       collection: Pet.sizes.keys,
-      include_blank: true
+      include_blank: true,
     ),
     status: Field::Select.with_options(
       collection: Pet.statuses.keys,
-      include_blank: true
+      include_blank: true,
     ),
     spayed_neutered: Field::Boolean,
     temperament: MultiSelectField.with_options(
-      collection: Pet::TEMPERAMENT_OPTIONS
+      collection: Pet::TEMPERAMENT_OPTIONS,
     ),
     vaccinated: Field::Boolean,
     microchipped: Field::Boolean,
     weight: Field::Number.with_options(decimals: 2),
     photos: Field::ActiveStorage.with_options(
       show_preview_size: [150, 150],
-      destroy_url: proc do |namespace, resource, attachment|
-        [:photo_admin_pet, {photo_id: attachment.id}]
-      end
+      destroy_url: proc do |_namespace, _resource, attachment|
+        [:photo_admin_pet, { photo_id: attachment.id }]
+      end,
     )
   }.freeze
 
@@ -133,6 +133,6 @@ class PetDashboard < Administrate::BaseDashboard
   end
 
   def permitted_attributes(_action = nil)
-    super + [photos: []]
+    super + [{ photos: [] }]
   end
 end

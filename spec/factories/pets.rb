@@ -23,9 +23,9 @@ FactoryBot.define do
     trait :with_photo do
       after(:create) do |pet|
         pet.photos.attach(
-          io: File.open(Rails.root.join("spec/fixtures/files/cat_salem.jpg")),
+          io: Rails.root.join("spec/fixtures/files/cat_salem.jpg").open,
           filename: "pet_photo.jpg",
-          content_type: "image/jpeg"
+          content_type: "image/jpeg",
         )
       end
     end

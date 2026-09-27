@@ -10,12 +10,11 @@ class VolunteerApplicationsController < ApplicationController
     if @volunteer_application.save
       redirect_to thank_you_volunteer_applications_path
     else
-      render :new, status: :unprocessable_entity
+      render :new, status: :unprocessable_content
     end
   end
 
-  def thank_you
-  end
+  def thank_you; end
 
   private
 
