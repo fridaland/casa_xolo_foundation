@@ -22,7 +22,7 @@ class AdoptionApplicationDashboard < Administrate::BaseDashboard
     references: Field::Text,
     status: Field::Select.with_options(
       collection: %w[pending reviewing approved rejected],
-      include_blank: false
+      include_blank: false,
     ),
     submitted_at: Field::DateTime,
     created_at: Field::DateTime,

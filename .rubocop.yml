@@ -31,10 +31,68 @@ Style/Documentation:
 Style/FrozenStringLiteralComment:
   Enabled: false
 
-# Permit methods with many params will naturally exceed 10 lines.
-Metrics/MethodLength:
-  Max: 20
-
 # We use the require().permit() pattern rather than the newer params.expect() API.
 Rails/StrongParametersExpect:
   Enabled: false
+
+Layout/HashAlignment:
+  Enabled: false
+
+# Devise initializer is generated and contains long explanatory comments.
+# Seeds contain intentionally verbose description strings.
+Layout/LineLength:
+  Exclude:
+    - "config/initializers/devise.rb"
+    - "db/seeds.rb"
+
+Layout/SpaceInsideHashLiteralBraces:
+  EnforcedStyle: space
+
+# Prefer double-quoted strings.
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+
+# Prefer double quotes inside interpolations to match Style/StringLiterals.
+Style/StringLiteralsInInterpolation:
+  EnforcedStyle: double_quotes
+
+# Devise generates compact-style controllers (Users::SessionsController).
+# Nested style is not worth enforcing on generated code.
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+# Block length limits are not meaningful in spec files or route/DSL blocks.
+Metrics/BlockLength:
+  Exclude:
+    - "spec/**/*"
+    - "config/routes.rb"
+
+# These metric cops fire on Rails-generated migration boilerplate.
+Metrics/AbcSize:
+  Exclude:
+    - "db/migrate/**/*"
+
+# Permit methods with many params will naturally exceed 10 lines.
+# Also exclude generated migration files.
+Metrics/MethodLength:
+  Max: 20
+  Exclude:
+    - "db/migrate/**/*"
+
+# The cops below flag issues in already-run migrations that cannot be changed.
+Rails/NotNullColumn:
+  Exclude:
+    - "db/migrate/**/*"
+
+Rails/ThreeStateBooleanColumn:
+  Exclude:
+    - "db/migrate/**/*"
+
+Rails/BulkChangeTable:
+  Exclude:
+    - "db/migrate/**/*"
+
+# `puts` is intentional in seeds for progress feedback.
+Rails/Output:
+  Exclude:
+    - "db/seeds.rb"

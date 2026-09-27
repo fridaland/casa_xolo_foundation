@@ -13,12 +13,12 @@ Rails.application.routes.draw do
     resources :users
     resources :volunteers
     resources :volunteer_applications
-    resources :adoption_applications, only: [:index, :show]
+    resources :adoption_applications, only: %i[index show]
 
     root to: "board_members#index"
   end
 
-  resources :volunteer_applications, only: [:new, :create] do
+  resources :volunteer_applications, only: %i[new create] do
     get :thank_you, on: :collection
   end
   devise_for :users
@@ -28,11 +28,11 @@ Rails.application.routes.draw do
   # Can be used by load balancers and uptime monitors to verify that the app is live.
   get "up" => "rails/health#show", :as => :rails_health_check
 
-  resources :pets, only: [:index, :show] do
-    resources :adoption_applications, only: [:new, :create] do
+  resources :pets, only: %i[index show] do
+    resources :adoption_applications, only: %i[new create] do
       get :thank_you, on: :collection
     end
-    resources :foster_applications, only: [:new, :create] do
+    resources :foster_applications, only: %i[new create] do
       get :thank_you, on: :collection
     end
   end

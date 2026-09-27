@@ -7,15 +7,15 @@ RSpec.describe "Pet show page", type: :system do
 
   def create_pet_luna
     create(:pet,
-      name: "Luna",
-      breed: "Mixed Breed",
-      species: :dog,
-      age: 2,
-      status: :available,
-      description: "A sweet and gentle girl who loves cuddles and long walks.",
-      vaccinated: true,
-      spayed_neutered: true,
-      microchipped: true)
+           name: "Luna",
+           breed: "Mixed Breed",
+           species: :dog,
+           age: 2,
+           status: :available,
+           description: "A sweet and gentle girl who loves cuddles and long walks.",
+           vaccinated: true,
+           spayed_neutered: true,
+           microchipped: true,)
   end
 
   describe "visiting the show page" do

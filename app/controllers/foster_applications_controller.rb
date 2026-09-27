@@ -3,13 +3,13 @@ class FosterApplicationsController < ApplicationController
   before_action :set_pet
 
   def new
-    @application = AdoptionApplication.new(application_type: 'foster')
+    @application = AdoptionApplication.new(application_type: "foster")
   end
 
   def create
     @application = AdoptionApplication.new(foster_application_params)
     @application.pet = @pet
-    @application.application_type = 'foster'
+    @application.application_type = "foster"
     if @application.save
       redirect_to thank_you_pet_foster_applications_path(@pet)
     else
