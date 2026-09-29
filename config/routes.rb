@@ -38,6 +38,8 @@ Rails.application.routes.draw do
   end
 
   get "/" => "home#index", :as => :home
+  get "/events" => "events#index", :as => :events
+  resources :newsletter_subscriptions, only: [:create]
   get "/volunteer" => "pages#volunteer", :as => :volunteer
   get "/about" => "pages#about", :as => :about
   get "/adopt" => "pages#adopt", :as => :adopt

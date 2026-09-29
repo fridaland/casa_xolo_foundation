@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_09_07_024300) do
+ActiveRecord::Schema[8.1].define(version: 2026_09_29_014859) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -90,6 +90,13 @@ ActiveRecord::Schema[8.1].define(version: 2026_09_07_024300) do
     t.string "location"
     t.string "name", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "newsletter_subscriptions", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.string "email", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_newsletter_subscriptions_on_email", unique: true
   end
 
   create_table "parents", force: :cascade do |t|
