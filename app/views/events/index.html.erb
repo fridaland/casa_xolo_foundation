@@ -36,6 +36,9 @@
             <% if event.description.present? %>
               <p class="event-card__desc"><%= event.description %></p>
             <% end %>
+            <% if event.signup_url.present? %>
+              <%= link_to "Sign Up", event.signup_url, class: "event-card__signup-btn", target: "_blank", rel: "noopener noreferrer" %>
+            <% end %>
           </article>
         <% end %>
       </div>

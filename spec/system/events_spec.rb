@@ -42,6 +42,24 @@ RSpec.describe "Events page", type: :system do
     end
   end
 
+  describe "sign up link" do
+    it "shows a Sign Up button when the event has a signup_url" do
+      create(:event, :with_signup_url, name: "Gala Night", signup_url: "https://example.com/gala")
+
+      visit events_path
+
+      expect(page).to have_link("Sign Up", href: "https://example.com/gala")
+    end
+
+    it "does not show a Sign Up button when signup_url is absent" do
+      create(:event, name: "Open House", signup_url: nil)
+
+      visit events_path
+
+      expect(page).not_to have_link("Sign Up")
+    end
+  end
+
   describe "newsletter form" do
     it "shows the newsletter signup form" do
       visit events_path

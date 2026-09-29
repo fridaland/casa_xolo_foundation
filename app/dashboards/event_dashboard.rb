@@ -7,6 +7,7 @@ class EventDashboard < Administrate::BaseDashboard
     event_date: Field::DateTime,
     location: Field::String,
     description: Field::Text,
+    signup_url: Field::Url,
     created_at: Field::DateTime,
     updated_at: Field::DateTime
   }.freeze
@@ -24,6 +25,7 @@ class EventDashboard < Administrate::BaseDashboard
     event_date
     location
     description
+    signup_url
     created_at
     updated_at
   ].freeze
@@ -33,6 +35,7 @@ class EventDashboard < Administrate::BaseDashboard
     event_date
     location
     description
+    signup_url
   ].freeze
 
   COLLECTION_FILTERS = {
