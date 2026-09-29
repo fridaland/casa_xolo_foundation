@@ -41,14 +41,14 @@ RSpec.describe Event, type: :model do
 
   describe ".upcoming" do
     it "returns events ordered by date ascending" do
-      later  = create(:event, event_date: 3.weeks.from_now)
+      later = create(:event, event_date: 3.weeks.from_now)
       sooner = create(:event, event_date: 1.week.from_now)
 
       expect(Event.upcoming).to eq([sooner, later])
     end
 
     it "excludes past events" do
-      past   = create(:event, event_date: 1.day.ago)
+      past = create(:event, event_date: 1.day.ago)
       future = create(:event, event_date: 1.week.from_now)
 
       expect(Event.upcoming).to include(future)

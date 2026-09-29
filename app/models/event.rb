@@ -1,5 +1,5 @@
 class Event < ApplicationRecord
-  URL_REGEX = %r{\Ahttps?://.+}i
+  URL_REGEX = %r{\Ahttps?://.+\z}i
 
   validates :name, presence: true
   validates :event_date, presence: true
