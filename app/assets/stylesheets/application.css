@@ -447,6 +447,10 @@ dd,
   word-break: break-word;
 }
 
+.attribute-data a {
+  color: #1976d2;
+}
+
 /* Last value in a fieldset — no trailing border */
 dt:last-of-type + dd,
 .attribute-label:last-of-type + .attribute-data {
