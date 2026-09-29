@@ -1,0 +1,52 @@
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <div class="site-footer__brand">
+      <%= link_to "Casa Xolo", home_path, class: "site-footer__logo" %>
+      <p class="site-footer__tagline">
+        Building a sanctuary for animals and a gathering place for our community.
+      </p>
+    </div>
+
+    <div class="site-footer__col">
+      <h3 class="site-footer__heading">Quick Links</h3>
+      <ul class="site-footer__links">
+        <li><%= link_to "About", about_path %></li>
+        <li><%= link_to "Adoptable Pets", pets_path %></li>
+        <li><%= link_to "Become a Foster", pets_path %></li>
+        <li><%= link_to "Volunteer", volunteer_path %></li>
+        <li><%= link_to "Events", events_path %></li>
+      </ul>
+    </div>
+
+    <div class="site-footer__col">
+      <h3 class="site-footer__heading">Contact</h3>
+      <ul class="site-footer__links">
+        <li>
+          <%= link_to "contact@casaxolofoundation.org", "mailto:contact@casaxolofoundation.org" %>
+        </li>
+      </ul>
+      <div class="site-footer__social">
+        <%= link_to "https://www.instagram.com/casa_xolo_foundation",
+          class: "site-footer__social-link",
+          target: "_blank",
+          rel: "noopener noreferrer",
+          "aria-label": "Casa Xolo Foundation on Instagram" do %>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+            <circle cx="12" cy="12" r="4"/>
+            <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/>
+          </svg>
+          Instagram
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="site-footer__bottom">
+    <div class="site-footer__inner">
+      <p class="site-footer__copyright">
+        &copy; <%= Time.current.year %> Casa Xolo Foundation. All rights reserved.
+      </p>
+    </div>
+  </div>
+</footer>
