@@ -31,6 +31,10 @@ Style/Documentation:
 Style/FrozenStringLiteralComment:
   Enabled: false
 
+# This is a simple single-locale site; I18n locale files would be overkill.
+Rails/I18nLocaleTexts:
+  Enabled: false
+
 # We use the require().permit() pattern rather than the newer params.expect() API.
 Rails/StrongParametersExpect:
   Enabled: false

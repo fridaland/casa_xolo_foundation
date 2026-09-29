@@ -81,5 +81,21 @@ RSpec.describe "Homepage", type: :system do
 
       expect(page).to have_link("View All Events")
     end
+
+    it "shows a Sign Up button on event cards that have a signup_url" do
+      create(:event, :with_signup_url, name: "Fundraiser Gala", signup_url: "https://example.com/gala", event_date: 1.week.from_now)
+
+      visit "/"
+
+      expect(page).to have_link("Sign Up", href: "https://example.com/gala")
+    end
+
+    it "does not show a Sign Up button on event cards without a signup_url" do
+      create(:event, name: "Open House", signup_url: nil, event_date: 1.week.from_now)
+
+      visit "/"
+
+      expect(page).not_to have_link("Sign Up")
+    end
   end
 end

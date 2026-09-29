@@ -13,6 +13,7 @@ ignore:
     - Layout/MultilineMethodCallIndentation     # RuboCop owns multiline call indentation
     - Style/TrailingCommaInArguments            # RuboCop enforces consistent_comma
     - Style/RescueStandardError                 # RuboCop requires specifying the error class
+    - Rails/I18nLocaleTexts                     # single-locale site, no I18n needed
   - "db/migrate/**/*":
     - Rails/NotNullColumn
     - Rails/ThreeStateBooleanColumn
