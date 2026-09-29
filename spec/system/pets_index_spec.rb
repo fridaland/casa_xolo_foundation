@@ -141,7 +141,7 @@ RSpec.describe "Pets index page", type: :system do
     it "is linked from the nav bar" do
       visit "/"
 
-      click_link "Adoptable Pets"
+      within("header.site-header") { click_link "Adoptable Pets" }
 
       expect(page).to have_current_path(pets_path)
     end

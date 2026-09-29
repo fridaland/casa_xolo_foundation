@@ -649,6 +649,115 @@ dt:last-of-type + dd,
 
 
 /* ============================================================
+   PUBLIC SITE — FOOTER
+   ============================================================ */
+
+.site-footer {
+  background-color: var(--color-charcoal);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.site-footer__inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 4rem 2rem 0;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr;
+  gap: 3rem;
+}
+
+.site-footer__logo {
+  font-family: var(--font-script);
+  font-size: 2rem;
+  color: var(--color-gold);
+  display: block;
+  margin-bottom: 0.875rem;
+  line-height: 1;
+}
+
+.site-footer__tagline {
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.5);
+  line-height: 1.65;
+  margin: 0;
+  max-width: 260px;
+}
+
+.site-footer__heading {
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--color-white);
+  letter-spacing: 0.02em;
+  margin: 0 0 1rem;
+}
+
+.site-footer__links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  a {
+    font-family: var(--font-sans);
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.55);
+    transition: color 0.15s ease;
+
+    &:hover {
+      color: var(--color-gold);
+    }
+  }
+}
+
+.site-footer__social {
+  margin-top: 1.25rem;
+}
+
+.site-footer__social-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.55);
+  transition: color 0.15s ease;
+
+  svg {
+    width: 1.125rem;
+    height: 1.125rem;
+    flex-shrink: 0;
+  }
+
+  &:hover {
+    color: var(--color-gold);
+  }
+}
+
+.site-footer__bottom {
+  margin-top: 3rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+
+  .site-footer__inner {
+    display: block;
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+  }
+}
+
+.site-footer__copyright {
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  color: rgba(255, 255, 255, 0.35);
+  text-align: center;
+  margin: 0;
+}
+
+
+/* ============================================================
    PUBLIC SITE — HERO
    ============================================================ */
 
