@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_09_29_020843) do
+ActiveRecord::Schema[8.1].define(version: 2026_10_06_050923) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -102,7 +102,15 @@ ActiveRecord::Schema[8.1].define(version: 2026_09_29_020843) do
 
   create_table "parents", force: :cascade do |t|
     t.datetime "created_at", null: false
+    t.string "family_name"
+    t.integer "parent_type"
+    t.bigint "pet_id"
+    t.string "primary_contact_email"
+    t.string "primary_contact_name"
+    t.date "start_date"
+    t.integer "status"
     t.datetime "updated_at", null: false
+    t.index ["pet_id"], name: "index_parents_on_pet_id"
   end
 
   create_table "people", force: :cascade do |t|
