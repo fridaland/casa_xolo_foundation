@@ -15,10 +15,10 @@ class VolunteerApplicationDashboard < Administrate::BaseDashboard
       collection: VolunteerApplication::STATUSES,
       include_blank: false,
     ),
-    resume: Field::ActiveStorage,
-    submitted_at: Field::DateTime,
-    created_at: Field::DateTime,
-    updated_at: Field::DateTime
+    resume: Field::ActiveStorage.with_options(show_display_preview: false, index_display_preview: false),
+    submitted_at: Field::DateTime.with_options(format: "%b %-d, %Y %-l:%M %p %Z", timezone: "Central Time (US & Canada)"),
+    created_at: Field::DateTime.with_options(format: "%b %-d, %Y %-l:%M %p %Z", timezone: "Central Time (US & Canada)"),
+    updated_at: Field::DateTime.with_options(format: "%b %-d, %Y %-l:%M %p %Z", timezone: "Central Time (US & Canada)")
   }.freeze
 
   COLLECTION_ATTRIBUTES = %i[
@@ -31,7 +31,6 @@ class VolunteerApplicationDashboard < Administrate::BaseDashboard
   ].freeze
 
   SHOW_PAGE_ATTRIBUTES = %i[
-    id
     name
     email
     phone
