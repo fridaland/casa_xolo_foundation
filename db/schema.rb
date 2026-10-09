@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_10_06_050923) do
+ActiveRecord::Schema[8.1].define(version: 2026_10_13_205336) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -102,15 +102,10 @@ ActiveRecord::Schema[8.1].define(version: 2026_10_06_050923) do
 
   create_table "parents", force: :cascade do |t|
     t.datetime "created_at", null: false
-    t.string "family_name"
-    t.integer "parent_type"
-    t.bigint "pet_id"
+    t.string "family_name", null: false
     t.string "primary_contact_email"
     t.string "primary_contact_name"
-    t.date "start_date"
-    t.integer "status"
     t.datetime "updated_at", null: false
-    t.index ["pet_id"], name: "index_parents_on_pet_id"
   end
 
   create_table "people", force: :cascade do |t|
@@ -137,6 +132,19 @@ ActiveRecord::Schema[8.1].define(version: 2026_10_06_050923) do
     t.datetime "updated_at", null: false
     t.boolean "vaccinated", default: false
     t.decimal "weight", precision: 5, scale: 2
+  end
+
+  create_table "placements", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.date "end_date"
+    t.bigint "parent_id", null: false
+    t.bigint "pet_id", null: false
+    t.integer "placement_type", default: 0, null: false
+    t.date "start_date", null: false
+    t.integer "status", default: 0, null: false
+    t.datetime "updated_at", null: false
+    t.index ["parent_id"], name: "index_placements_on_parent_id"
+    t.index ["pet_id"], name: "index_placements_on_pet_id"
   end
 
   create_table "transactions", force: :cascade do |t|
@@ -177,4 +185,6 @@ ActiveRecord::Schema[8.1].define(version: 2026_10_06_050923) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "adoption_applications", "pets"
+  add_foreign_key "placements", "parents"
+  add_foreign_key "placements", "pets"
 end

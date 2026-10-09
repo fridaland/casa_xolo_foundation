@@ -6,40 +6,16 @@ class ParentDashboard < Administrate::BaseDashboard
     family_name: Field::String,
     primary_contact_name: Field::String,
     primary_contact_email: Field::String,
-    parent_type: BadgeField.with_options(
-      collection: Parent.parent_types.keys,
-      colors: {
-        "foster"   => "badge--parent-foster",
-        "adoptive" => "badge--parent-adoptive",
-      },
-    ),
-    pet: Field::BelongsTo,
-    pet_placement_status: BadgeField.with_options(
-      colors: {
-        "In Foster Care" => "badge--pet-foster",
-        "Adopted"        => "badge--pet-adopted",
-      },
-    ),
-    status: BadgeField.with_options(
-      collection: Parent.statuses.keys,
-      colors: {
-        "active"    => "badge--status-active",
-        "completed" => "badge--status-completed",
-      },
-    ),
-    start_date: Field::Date,
+    placements: Field::HasMany,
     created_at: Field::DateTime,
-    updated_at: Field::DateTime,
+    updated_at: Field::DateTime
   }.freeze
 
   COLLECTION_ATTRIBUTES = %i[
     family_name
     primary_contact_name
-    parent_type
-    pet
-    pet_placement_status
-    status
-    start_date
+    primary_contact_email
+    placements
   ].freeze
 
   SHOW_PAGE_ATTRIBUTES = %i[
@@ -47,11 +23,7 @@ class ParentDashboard < Administrate::BaseDashboard
     family_name
     primary_contact_name
     primary_contact_email
-    parent_type
-    pet
-    pet_placement_status
-    status
-    start_date
+    placements
     created_at
     updated_at
   ].freeze
@@ -60,10 +32,6 @@ class ParentDashboard < Administrate::BaseDashboard
     family_name
     primary_contact_name
     primary_contact_email
-    parent_type
-    pet
-    status
-    start_date
   ].freeze
 
   COLLECTION_FILTERS = {}.freeze

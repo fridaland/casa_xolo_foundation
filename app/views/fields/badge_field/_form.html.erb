@@ -1,16 +1,15 @@
 <%
   collection = field.options.fetch(:collection, [])
-  resource_name = field.resource.class.model_name.param_key
-  attribute = field.attribute
+  required_class = field.required? ? "field-unit--required" : ""
 %>
-<div class="field-unit field-unit--select field-unit--required">
+<div class="field-unit field-unit--select <%= required_class %>">
   <div class="field-unit__label">
-    <label for="<%= "#{resource_name}_#{attribute}" %>"><%= attribute.to_s.humanize %></label>
+    <%= f.label field.attribute %>
   </div>
   <div class="field-unit__field">
-    <%= select_tag "#{resource_name}[#{attribute}]",
+    <%= f.select field.attribute,
           options_for_select(collection, field.data),
-          id: "#{resource_name}_#{attribute}",
+          {},
           class: "select-field" %>
   </div>
 </div>

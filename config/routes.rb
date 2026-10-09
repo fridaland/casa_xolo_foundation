@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     resources :donors
     resources :email_records
     resources :parents
+    resources :placements
     resources :people
     resources :pets do
       delete :photo, on: :member, to: "pets#destroy_photo"
