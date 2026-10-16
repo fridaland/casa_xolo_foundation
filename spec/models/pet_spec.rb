@@ -23,6 +23,17 @@ RSpec.describe Pet, type: :model do
     end
   end
 
+  describe "associations" do
+    it { should have_many(:placements).dependent(:destroy) }
+    it { should have_many(:parents).through(:placements) }
+
+    it "destroys associated placements when destroyed" do
+      pet = create(:pet)
+      create(:placement, pet: pet)
+      expect { pet.destroy }.to change(Placement, :count).by(-1)
+    end
+  end
+
   describe "validations" do
     it { should validate_presence_of :name }
     it { should validate_presence_of :color }

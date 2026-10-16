@@ -1,4 +1,6 @@
 class Pet < ApplicationRecord
+  has_many :placements, dependent: :destroy
+  has_many :parents, through: :placements
   has_many_attached :photos
 
   TEMPERAMENT_OPTIONS = %w[

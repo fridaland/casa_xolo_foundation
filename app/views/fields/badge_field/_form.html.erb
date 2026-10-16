@@ -1,0 +1,15 @@
+<%
+  collection = field.options.fetch(:collection, [])
+  required_class = field.required? ? "field-unit--required" : ""
+%>
+<div class="field-unit field-unit--select <%= required_class %>">
+  <div class="field-unit__label">
+    <%= f.label field.attribute %>
+  </div>
+  <div class="field-unit__field">
+    <%= f.select field.attribute,
+          options_for_select(collection, field.data),
+          {},
+          class: "select-field" %>
+  </div>
+</div>
