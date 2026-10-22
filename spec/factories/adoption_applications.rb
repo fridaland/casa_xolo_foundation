@@ -18,6 +18,10 @@ FactoryBot.define do
     adoption_reason { Faker::Lorem.paragraph(sentence_count: 2) }
     application_type { "adoption" }
 
+    trait :adoption do
+      application_type { "adoption" }
+    end
+
     trait :foster do
       application_type { "foster" }
     end

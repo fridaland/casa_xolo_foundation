@@ -20,6 +20,7 @@ class AdoptionApplicationDashboard < Administrate::BaseDashboard
     pet_experience: Field::Text,
     adoption_reason: Field::Text,
     references: Field::Text,
+    application_type: Field::String,
     status: Field::Select.with_options(
       collection: %w[pending reviewing approved rejected],
       include_blank: false,
@@ -41,6 +42,7 @@ class AdoptionApplicationDashboard < Administrate::BaseDashboard
   SHOW_PAGE_ATTRIBUTES = %i[
     id
     pet
+    application_type
     status
     submitted_at
     first_name

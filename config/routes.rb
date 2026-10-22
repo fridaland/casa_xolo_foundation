@@ -13,7 +13,9 @@ Rails.application.routes.draw do
     resources :users
     resources :volunteers
     resources :volunteer_applications
-    resources :adoption_applications, only: %i[index show]
+    resources :adoption_applications, only: %i[index show] do
+      post :approve, on: :member
+    end
 
     root to: "board_members#index"
   end

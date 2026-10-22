@@ -1,0 +1,12 @@
+<% unless page.resource.status == "approved" %>
+  <% content_for(:header_last) do %>
+    <%= button_to(
+      "Approve",
+      approve_admin_adoption_application_path(page.resource),
+      method: :post,
+      class: "button"
+    ) %>
+  <% end %>
+<% end %>
+
+<%= render template: "administrate/application/show", locals: { page: page } %>
