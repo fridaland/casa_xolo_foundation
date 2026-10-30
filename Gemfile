@@ -78,4 +78,4 @@ group :test do
   gem "shoulda-matchers"
 end
 
-gem "tailwindcss-rails", "~> 4.6"
+gem "tailwindcss-rails", "~> 4.7"
